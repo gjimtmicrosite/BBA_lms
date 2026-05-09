@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>42-Hour Calendar — GJIMT BBA with AI LMS</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#f4f6fb;
+  color:#1a1a2e;
+}
+header{
+  background:linear-gradient(135deg,#0f3460,#16213e);
+  color:#fff;
+  padding:18px 32px;
+}
+header h1{
+  font-size:1.5rem;
+  margin-bottom:4px;
+}
+header p{
+  font-size:.88rem;
+  opacity:.9;
+}
+nav{
+  background:#16213e;
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  padding:8px 32px;
+}
+nav a{
+  color:#e0e0e0;
+  text-decoration:none;
+  padding:7px 14px;
+  border-radius:4px;
+  font-size:.86rem;
+  transition:.2s;
+}
+nav a:hover,
+nav a.active{
+  background:#0f3460;
+  color:#fff;
+}
+.container{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 20px;
+}
+.card{
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  padding:24px;
+  margin-bottom:22px;
+}
+.card h2{
+  color:#0f3460;
+  margin-bottom:14px;
+}
+.card p{
+  margin-bottom:12px;
+  line-height:1.6;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.88rem;
+}
+th{
+  background:#0f3460;
+  color:#fff;
+  padding:10px 12px;
+  text-align:left;
+}
+td{
+  padding:9px 12px;
+  border-bottom:1px solid #eee;
+  vertical-align:top;
+}
+tr:hover td{
+  background:#f7f9ff;
+}
+.badge{
+  display:inline-block;
+  padding:3px 9px;
+  border-radius:12px;
+  font-size:.73rem;
+  font-weight:600;
+}
+.badge-proj{
+  background:#e3f2fd;
+  color:#0f3460;
+}
+.badge-gsdc{
+  background:#e8f5e9;
+  color:#1b5e20;
+}
+.badge-mock{
+  background:#fff3e0;
+  color:#e65100;
+}
+.badge-doubt{
+  background:#f3e5f5;
+  color:#6a1b9a;
+}
+.highlight{
+  background:#f8f9ff;
+  border-left:4px solid #0f3460;
+  padding:12px 16px;
+  border-radius:0 8px 8px 0;
+  margin:12px 0;
+}
+ul{
+  padding-left:20px;
+  margin-top:8px;
+}
+li{
+  margin:6px 0;
+}
+footer{
+  text-align:center;
+  padding:22px;
+  color:#777;
+  font-size:.82rem;
+}
+.tool-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.tool{
+  background:#f8f9ff;
+  border-radius:10px;
+  padding:14px;
+  border:1px solid #e0e7ff;
+}
+.tool h4{
+  color:#0f3460;
+  margin-bottom:6px;
+}
+@media(max-width:768px){
+  table{
+    font-size:.78rem;
+  }
+  th,td{
+    padding:8px;
+  }
+  header{
+    padding:18px;
+  }
+  nav{
+    padding:8px 18px;
+  }
+}
+</style>
+
+<style>
+table td:first-child{
+  width:42px;
+  text-align:center;
+  font-weight:700;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════ GJIMT LMS AUTH SYSTEM ════════════════════════ -->
+
+<style>
+#lms-login-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f172a 100%);
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+  font-family:'Segoe UI',sans-serif;
+}
+#lms-login-overlay.active{
+  display:flex;
+}
+.lms-login-box{
+  background:#fff;
+  border-radius:18px;
+  padding:40px 36px;
+  width:360px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  text-align:center;
+}
+.lms-logo{
+  font-size:2rem;
+  margin-bottom:4px;
+}
+.lms-login-box h2{
+  color:#0f172a;
+  margin-bottom:6px;
+}
+.lms-subtitle{
+  font-size:.8rem;
+  color:#64748b;
+  margin-bottom:24px;
+  line-height:1.6;
+}
+.lms-login-box input{
+  width:100%;
+  padding:11px 14px;
+  border:1.5px solid #dbe3ef;
+  border-radius:8px;
+  font-size:.94rem;
+  margin-bottom:12px;
+  outline:none;
+}
+.lms-login-box input:focus{
+  border-color:#3b82f6;
+}
+.lms-login-box button{
+  width:100%;
+  padding:12px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+}
+.lms-login-box button:hover{
+  background:#1d4ed8;
+}
+#lms-login-error{
+  color:#dc2626;
+  font-size:.82rem;
+  margin-top:10px;
+  min-height:18px;
+}
+.lms-hint{
+  font-size:.73rem;
+  color:#94a3b8;
+  margin-top:14px;
+  line-height:1.6;
+}
+.lms-page-content{
+  display:none;
+}
+.lms-page-content.unlocked{
+  display:block;
+}
+.lms-logout-btn{
+  position:fixed;
+  top:12px;
+  right:16px;
+  z-index:9999;
+  background:#ef4444;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:7px 14px;
+  font-size:.8rem;
+  cursor:pointer;
+  font-weight:600;
+}
+.lms-logout-btn:hover{
+  background:#dc2626;
+}
+.lms-welcome-bar{
+  background:#0f172a;
+  color:#cbd5e1;
+  font-size:.78rem;
+  text-align:center;
+  padding:6px;
+}
+</style>
+
+<div id="lms-login-overlay" class="active">
+  <div class="lms-login-box">
+    <div class="lms-logo">🎓</div>
+    <h2>GJIMT BBA LMS</h2>
+
+    <div class="lms-subtitle">
+      BBA with AI Integration · 2026<br>
+      Please sign in to continue
+    </div>
+
+    <input type="text" id="lms-uid" placeholder="User ID">
+    <input type="password" id="lms-pwd" placeholder="Password"
+      onkeydown="if(event.key==='Enter')lmsDoLogin()">
+
+    <button onclick="lmsDoLogin()">Sign In →</button>
+
+    <div id="lms-login-error"></div>
+
+    <div class="lms-hint">
+      Students: <b>bba26-ai-01</b> … <b>bba26-ai-10</b><br>
+      Faculty: <b>bba26-fac-tarun</b> &nbsp; | &nbsp;
+      Admin: <b>bba26-admin</b>
+    </div>
+  </div>
+</div>
+
+<button class="lms-logout-btn"
+  id="lms-logout-btn"
+  style="display:none"
+  onclick="lmsLogout()">
+  ⏻ Sign Out
+</button>
+
+<div id="lms-welcome-bar"
+  class="lms-welcome-bar"
+  style="display:none">
+</div>
+
+<div id="lms-page-content" class="lms-page-content">
+
+<header>
+  <h1>GJIMT AI Lab — BBA with AI Integration LMS</h1>
+  <p>
+    BBA with AI Integration · Semester 1 · 42-Hour Program · Aug–Nov 2026
+  </p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="calendar.html" class="active">📅 42-Hour Calendar</a>
+  <a href="projects.html">📁 Shadow Projects</a>
+  <a href="mock.html">📝 GSDC Mock Tests</a>
+  <a href="faculty.html">👩‍🏫 Faculty Dashboard</a>
+  <a href="users.html">🔑 User Accounts</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<h2>📅 42-Hour Weekly Roadmap — BBA with AI Integration</h2>
+
+<p>
+3 hours per week × 14 weeks = 42 hours. The delivery model combines
+Business Foundations with AI-supported experiential learning.
+Every Friday: GSDC doubt session. Every Saturday: module-wise mock test.
+</p>
+
+<div style="overflow-x:auto">
+
+<table>
+
+<thead>
+<tr>
+<th>Wk</th>
+<th>Dates</th>
+<th>Shadow Project Activity</th>
+<th>AI / GSDC Learning</th>
+<th>Friday & Saturday Activities</th>
+<th>Hrs</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>03–07 Aug 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Local Market Study — identify nearby retail outlet and collect basic business details
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Introduction to AI Tools for Business Students
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> AI Tool Orientation<br>
+<span class="badge badge-mock">Sat</span> Mock Test — Basics
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>10–14 Aug 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Customer segment identification & demand analysis
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+ChatGPT & Gemini for Concept Clarity
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Doubt Session #2<br>
+<span class="badge badge-mock">Sat</span> Module Quiz
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>17–21 Aug 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Pricing comparison and Excel AI data tables
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Excel AI for Basic Numerical Analysis
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Excel AI Practice<br>
+<span class="badge badge-mock">Sat</span> Mock Test
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>24–28 Aug 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Canva AI presentation for Local Market Study
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Canva AI & Beautiful.ai Presentations
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Presentation Review<br>
+<span class="badge badge-mock">Sat</span> Presentation Evaluation
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>31 Aug–04 Sep 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Customer Communication Audit — collect FAQs & email responses
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Business Communication with AI
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Communication Review<br>
+<span class="badge badge-mock">Sat</span> AI Communication Quiz
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>07–11 Sep 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Grammar and tone correction using Grammarly AI
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Professional Writing with Grammarly AI
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Writing Feedback<br>
+<span class="badge badge-mock">Sat</span> Mock Assessment
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>14–18 Sep 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+AI-assisted customer response redesign
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Prompt Engineering Basics
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Prompt Practice<br>
+<span class="badge badge-mock">Sat</span> Prompt Quiz
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>21–25 Sep 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Final Communication Audit report submission
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Ethical Use of AI in Communication
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Viva Preparation<br>
+<span class="badge badge-mock">Sat</span> Mock Viva
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>28 Sep–02 Oct 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Business communication case discussion using AI
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+AI-Supported Business Reasoning
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Case Review<br>
+<span class="badge badge-mock">Sat</span> Case Quiz
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>05–09 Oct 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Mini business presentation with AI-generated insights
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Microsoft Copilot & Workspace AI
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Copilot Demo<br>
+<span class="badge badge-mock">Sat</span> Tool Test
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>12–16 Oct 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Data-supported decision making exercises
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Business Analytics Foundations
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Dashboard Basics<br>
+<span class="badge badge-mock">Sat</span> Analytics Quiz
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>19–23 Oct 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Final project portfolio preparation
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Presentation & Documentation Standards
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Portfolio Review<br>
+<span class="badge badge-mock">Sat</span> Internal Evaluation
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>26–30 Oct 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Peer review & business presentation rehearsal
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Future of AI in Business
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Final Doubt Session<br>
+<span class="badge badge-mock">Sat</span> Grand Mock Test
+</td>
+<td>3h</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>02–06 Nov 2026</td>
+<td>
+<span class="badge badge-proj">Project</span>
+Final Viva + Portfolio Submission
+</td>
+<td>
+<span class="badge badge-gsdc">AI</span>
+Capstone Review & Certification Readiness
+</td>
+<td>
+<span class="badge badge-doubt">Fri</span> Final Discussion<br>
+<span class="badge badge-mock">Sat</span> Full-Length Mock Exam
+</td>
+<td>3h</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+</div>
+
+<div class="card">
+<h2>📘 Semester 1 Core Subjects</h2>
+
+<div class="highlight">
+Principles of Management · Business Communication · Microeconomics ·
+Business Mathematics · Financial Accounting
+</div>
+
+<h2 style="margin-top:20px">🤖 AI Tools Integrated in BBA Program</h2>
+
+<div class="tool-box">
+
+<div class="tool">
+<h4>ChatGPT / Gemini</h4>
+<p>Concept explanation, reasoning, case discussion and idea generation.</p>
+</div>
+
+<div class="tool">
+<h4>Microsoft Copilot</h4>
+<p>Reports, summaries, business notes and productivity workflows.</p>
+</div>
+
+<div class="tool">
+<h4>Excel AI</h4>
+<p>Basic numerical analysis, pricing tables and demand insights.</p>
+</div>
+
+<div class="tool">
+<h4>Grammarly AI</h4>
+<p>Professional communication, email writing and correction.</p>
+</div>
+
+<div class="tool">
+<h4>Canva AI</h4>
+<p>Presentation building and visual storytelling.</p>
+</div>
+
+<div class="tool">
+<h4>Beautiful.ai</h4>
+<p>Professional business presentation generation.</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+
+<h2>📊 Hour Allocation Summary</h2>
+
+<table>
+<tr>
+<th>Component</th>
+<th>Hours</th>
+<th>Details</th>
+</tr>
+
+<tr>
+<td>Local Market Study Project</td>
+<td>18h</td>
+<td>Demand analysis, pricing, customer segmentation</td>
+</tr>
+
+<tr>
+<td>Customer Communication Audit</td>
+<td>14h</td>
+<td>Email, FAQ & communication improvement analysis</td>
+</tr>
+
+<tr>
+<td>AI Tool Learning & Practice</td>
+<td>6h</td>
+<td>ChatGPT, Excel AI, Grammarly AI, Canva AI</td>
+</tr>
+
+<tr>
+<td>Portfolio, Viva & Review</td>
+<td>4h</td>
+<td>Presentation, review and final evaluation</td>
+</tr>
+
+<tr style="font-weight:700">
+<td>TOTAL CONTACT HOURS</td>
+<td>42h</td>
+<td>Semester 1 Delivery Plan</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 GJIMT AI Lab · BBA with AI Integration · Powered by GitHub Pages
+</footer>
+
+</div>
+
+<script>
+(function(){
+
+  var USERS = {
+    'bba26-ai-01':'student@2026',
+    'bba26-ai-02':'student@2026',
+    'bba26-ai-03':'student@2026',
+    'bba26-ai-04':'student@2026',
+    'bba26-ai-05':'student@2026',
+    'bba26-ai-06':'student@2026',
+    'bba26-ai-07':'student@2026',
+    'bba26-ai-08':'student@2026',
+    'bba26-ai-09':'student@2026',
+    'bba26-ai-10':'student@2026',
+
+    'bba26-fac-tarun':'faculty@2026',
+    'bba26-admin':'admin@2026'
+  };
+
+  var ROLES = {
+    'bba26-ai-01':'student',
+    'bba26-ai-02':'student',
+    'bba26-ai-03':'student',
+    'bba26-ai-04':'student',
+    'bba26-ai-05':'student',
+    'bba26-ai-06':'student',
+    'bba26-ai-07':'student',
+    'bba26-ai-08':'student',
+    'bba26-ai-09':'student',
+    'bba26-ai-10':'student',
+
+    'bba26-fac-tarun':'faculty',
+    'bba26-admin':'admin'
+  };
+
+  var ALLOWED = ['student','faculty','admin'];
+
+  function getSession(){
+    try{
+      return JSON.parse(sessionStorage.getItem('lmsSession')||'null');
+    }catch(e){
+      return null;
+    }
+  }
+
+  function setSession(uid,role){
+    sessionStorage.setItem(
+      'lmsSession',
+      JSON.stringify({uid:uid,role:role})
+    );
+  }
+
+  function clearSession(){
+    sessionStorage.removeItem('lmsSession');
+  }
+
+  function unlock(session){
+
+    document
+      .getElementById('lms-login-overlay')
+      .classList.remove('active');
+
+    document
+      .getElementById('lms-logout-btn')
+      .style.display='block';
+
+    var wb=document.getElementById('lms-welcome-bar');
+
+    wb.style.display='block';
+
+    wb.textContent =
+      'Signed in as: ' +
+      session.uid +
+      ' (' + session.role + ')' +
+      ' | BBA with AI Integration 2026';
+
+    var content=document.getElementById('lms-page-content');
+
+    if(content){
+      content.classList.add('unlocked');
+    }
+  }
+
+  window.lmsDoLogin=function(){
+
+    var uid=(
+      document.getElementById('lms-uid').value || ''
+    ).trim().toLowerCase();
+
+    var pwd=document.getElementById('lms-pwd').value || '';
+
+    var err=document.getElementById('lms-login-error');
+
+    if(!USERS[uid]){
+      err.textContent='❌ User ID not found.';
+      return;
+    }
+
+    if(USERS[uid]!==pwd){
+      err.textContent='❌ Incorrect password.';
+      return;
+    }
+
+    var role=ROLES[uid];
+
+    if(ALLOWED.indexOf(role)===-1){
+      err.textContent='⛔ Access denied.';
+      return;
+    }
+
+    setSession(uid,role);
+
+    unlock({
+      uid:uid,
+      role:role
+    });
+  };
+
+  window.lmsLogout=function(){
+
+    clearSession();
+
+    document
+      .getElementById('lms-login-overlay')
+      .classList.add('active');
+
+    document
+      .getElementById('lms-logout-btn')
+      .style.display='none';
+
+    document
+      .getElementById('lms-welcome-bar')
+      .style.display='none';
+
+    var content=document.getElementById('lms-page-content');
+
+    if(content){
+      content.classList.remove('unlocked');
+    }
+
+    document.getElementById('lms-uid').value='';
+    document.getElementById('lms-pwd').value='';
+    document.getElementById('lms-login-error').textContent='';
+  };
+
+  var session=getSession();
+
+  if(
+    session &&
+    USERS[session.uid] &&
+    ROLES[session.uid]===session.role &&
+    ALLOWED.indexOf(session.role)!==-1
+  ){
+    unlock(session);
+  }
+
+})();
+</script>
+
+</body>
+</html>

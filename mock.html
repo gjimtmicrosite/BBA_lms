@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GSDC Mock Tests — GJIMT BBA AI LMS</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#f4f6fb;
+  color:#1a1a2e;
+}
+
+header{
+  background:linear-gradient(135deg,#0f3460,#16213e);
+  color:#fff;
+  padding:18px 32px;
+}
+
+header h1{
+  font-size:1.45rem;
+  font-weight:700;
+}
+
+header p{
+  font-size:.85rem;
+  opacity:.9;
+  margin-top:4px;
+}
+
+nav{
+  background:#16213e;
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  padding:8px 32px;
+}
+
+nav a{
+  color:#e0e0e0;
+  text-decoration:none;
+  padding:7px 14px;
+  border-radius:5px;
+  font-size:.85rem;
+  transition:.2s;
+}
+
+nav a:hover,
+nav a.active{
+  background:#0f3460;
+  color:#fff;
+}
+
+.container{
+  max-width:1100px;
+  margin:28px auto;
+  padding:0 20px;
+}
+
+.card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  padding:24px;
+  margin-bottom:22px;
+}
+
+.card h2{
+  color:#0f3460;
+  margin-bottom:14px;
+  font-size:1.15rem;
+}
+
+.card h3{
+  margin:18px 0 10px;
+  color:#16213e;
+  font-size:1rem;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.88rem;
+}
+
+th{
+  background:#0f3460;
+  color:#fff;
+  padding:10px;
+  text-align:left;
+}
+
+td{
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
+
+tr:hover td{
+  background:#f7f9ff;
+}
+
+.badge{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:14px;
+  font-size:.73rem;
+  font-weight:600;
+}
+
+.badge-live{
+  background:#e8f5e9;
+  color:#1b5e20;
+}
+
+.badge-upcoming{
+  background:#fff3e0;
+  color:#ef6c00;
+}
+
+.badge-locked{
+  background:#eceff1;
+  color:#546e7a;
+}
+
+.btn{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  background:#0f3460;
+  color:#fff;
+  font-size:.84rem;
+  border:none;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:#16213e;
+}
+
+.btn-green{
+  background:#2e7d32;
+}
+
+.btn-green:hover{
+  background:#1b5e20;
+}
+
+.q-block{
+  background:#f8f9ff;
+  border:1px solid #dde3f0;
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:16px;
+}
+
+.q-block p{
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.q-block label{
+  display:block;
+  margin:7px 0;
+  cursor:pointer;
+  font-size:.92rem;
+}
+
+textarea{
+  width:100%;
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:10px;
+  resize:vertical;
+  font-size:.9rem;
+}
+
+.result-box{
+  margin-top:14px;
+  padding:12px;
+  border-radius:8px;
+  display:none;
+  font-weight:600;
+}
+
+.pass{
+  display:block;
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+.fail{
+  display:block;
+  background:#ffebee;
+  color:#c62828;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+
+.info-box{
+  background:#f8f9ff;
+  border-left:4px solid #0f3460;
+  padding:16px;
+  border-radius:0 10px 10px 0;
+  transition:.2s;
+}
+
+.info-box:hover{
+  transform:translateY(-3px);
+}
+
+.info-box h4{
+  margin-bottom:8px;
+  color:#0f3460;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#777;
+  font-size:.8rem;
+}
+
+/* AUTH */
+
+#lms-login-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f172a 100%);
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+  font-family:'Segoe UI',sans-serif;
+}
+
+#lms-login-overlay.active{
+  display:flex;
+}
+
+.lms-login-box{
+  background:#fff;
+  border-radius:18px;
+  padding:40px 36px;
+  width:360px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  text-align:center;
+}
+
+.lms-login-box h2{
+  color:#0f172a;
+  margin-bottom:6px;
+}
+
+.lms-login-box .lms-subtitle{
+  color:#64748b;
+  font-size:.78rem;
+  margin-bottom:24px;
+}
+
+.lms-login-box input{
+  width:100%;
+  padding:11px 14px;
+  border:1.5px solid #dbe2ea;
+  border-radius:8px;
+  margin-bottom:12px;
+  font-size:.94rem;
+}
+
+.lms-login-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#3b82f6;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#lms-login-error{
+  color:#e53935;
+  font-size:.82rem;
+  margin-top:10px;
+  min-height:18px;
+}
+
+.lms-page-content{
+  display:none;
+}
+
+.lms-page-content.unlocked{
+  display:block;
+}
+
+.lms-logout-btn{
+  position:fixed;
+  top:12px;
+  right:16px;
+  z-index:9999;
+  background:#ef4444;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:6px 14px;
+  font-size:.8rem;
+  cursor:pointer;
+}
+
+.lms-welcome-bar{
+  background:#0f172a;
+  color:#cbd5e1;
+  text-align:center;
+  padding:6px;
+  font-size:.78rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN SYSTEM -->
+
+<div id="lms-login-overlay" class="active">
+
+  <div class="lms-login-box">
+
+    <h2>🎓 GJIMT BBA LMS</h2>
+
+    <div class="lms-subtitle">
+      BBA with AI Integration · 2026<br>
+      Please sign in to continue
+    </div>
+
+    <input type="text" id="lms-uid" placeholder="User ID">
+
+    <input type="password"
+    id="lms-pwd"
+    placeholder="Password"
+    onkeydown="if(event.key==='Enter')lmsDoLogin()">
+
+    <button onclick="lmsDoLogin()">Sign In →</button>
+
+    <div id="lms-login-error"></div>
+
+    <div style="margin-top:14px;font-size:.75rem;color:#64748b;line-height:1.6">
+      Students: <b>bba26-ai-01</b> to <b>bba26-ai-10</b><br>
+      Faculty: <b>bba26-fac-tarun</b><br>
+      Admin: <b>bba26-admin</b>
+    </div>
+
+  </div>
+
+</div>
+
+<button class="lms-logout-btn"
+id="lms-logout-btn"
+style="display:none"
+onclick="lmsLogout()">
+⏻ Sign Out
+</button>
+
+<div id="lms-welcome-bar"
+class="lms-welcome-bar"
+style="display:none">
+</div>
+
+<div id="lms-page-content" class="lms-page-content">
+
+<header>
+  <h1>GJIMT AI Lab — BBA Sem 1 LMS</h1>
+  <p>BBA with AI Integration · GSDC Certification Mock Portal · 2026</p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="calendar.html">📅 42-Hour Calendar</a>
+  <a href="projects.html">📁 Shadow Projects</a>
+  <a href="mock.html" class="active">📝 GSDC Mock Tests</a>
+  <a href="faculty.html">👩‍🏫 Faculty Dashboard</a>
+  <a href="users.html">🔑 User Accounts</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+  <h2>📝 GSDC AI Certification Mock Test Portal</h2>
+
+  <p>
+    Weekly mock tests help students prepare for the
+    GSDC AI + Business Certification modules integrated
+    into the BBA with AI program.
+  </p>
+
+  <div class="info-grid">
+
+    <div class="info-box">
+      <h4>📘 Format</h4>
+      <p>10 MCQs + 1 Scenario Question</p>
+    </div>
+
+    <div class="info-box">
+      <h4>⏱ Duration</h4>
+      <p>45 Minutes every Saturday</p>
+    </div>
+
+    <div class="info-box">
+      <h4>🎯 Passing</h4>
+      <p>Minimum 70% required</p>
+    </div>
+
+    <div class="info-box">
+      <h4>📊 Evaluation</h4>
+      <p>MCQs auto-graded + faculty review</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- AVAILABLE MOCKS -->
+
+<div class="card">
+
+  <h2>🧠 Available Mock Tests</h2>
+
+  <div class="info-grid">
+
+    <div class="info-box">
+      <h4>📘 Week 1 — Prompt Engineering</h4>
+      <p>Prompt structure & role prompting.</p>
+      <br>
+      <button class="btn btn-green"
+      onclick="showMock('mock1')">
+      Start Mock →
+      </button>
+    </div>
+
+    <div class="info-box">
+      <h4>⚖️ Week 2 — AI Ethics</h4>
+      <p>Bias, privacy & responsible AI.</p>
+      <br>
+      <button class="btn"
+      disabled
+      style="opacity:.55;cursor:not-allowed">
+      Upcoming
+      </button>
+    </div>
+
+    <div class="info-box">
+      <h4>🤖 Week 3 — Generative AI</h4>
+      <p>LLMs & AI workflows.</p>
+      <br>
+      <button class="btn"
+      disabled
+      style="opacity:.55;cursor:not-allowed">
+      Upcoming
+      </button>
+    </div>
+
+    <div class="info-box">
+      <h4>📈 Week 4 — AI Marketing</h4>
+      <p>Campaign generation & AI ads.</p>
+      <br>
+      <button class="btn"
+      disabled
+      style="opacity:.55;cursor:not-allowed">
+      Locked
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MOCK 1 -->
+
+<div class="card" id="mock1">
+
+<h2>🧠 Week 1 Mock Test — Prompt Engineering Basics</h2>
+
+<div class="q-block">
+<p>1. Which prompt gives the clearest instruction to an AI model?</p>
+
+<label>
+<input type="radio" name="q1" value="0">
+Tell me about marketing
+</label>
+
+<label>
+<input type="radio" name="q1" value="1">
+Act as a marketing manager and create a 5-line Instagram campaign for a restaurant
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+Marketing ideas please
+</label>
+
+<label>
+<input type="radio" name="q1" value="0">
+Give random campaign
+</label>
+</div>
+
+<div class="q-block">
+<p>2. What is the purpose of role prompting?</p>
+
+<label><input type="radio" name="q2" value="0"> To confuse the AI</label>
+<label><input type="radio" name="q2" value="1"> To assign a professional role/persona to the AI</label>
+<label><input type="radio" name="q2" value="0"> To reduce output quality</label>
+<label><input type="radio" name="q2" value="0"> To stop AI responses</label>
+</div>
+
+<div class="q-block">
+<p>3. Which is a good business AI use case?</p>
+
+<label><input type="radio" name="q3" value="1"> Customer support chatbot</label>
+<label><input type="radio" name="q3" value="0"> Ignoring customer data</label>
+<label><input type="radio" name="q3" value="0"> Manual calculations only</label>
+<label><input type="radio" name="q3" value="0"> Removing all human interaction</label>
+</div>
+
+<div class="q-block">
+<p>4. Why should prompts include context?</p>
+
+<label><input type="radio" name="q4" value="0"> To increase confusion</label>
+<label><input type="radio" name="q4" value="1"> To improve response relevance and quality</label>
+<label><input type="radio" name="q4" value="0"> To shorten answers only</label>
+<label><input type="radio" name="q4" value="0"> No reason</label>
+</div>
+
+<div class="q-block">
+<p>5. Which tool is commonly used for generative AI conversations?</p>
+
+<label><input type="radio" name="q5" value="1"> ChatGPT</label>
+<label><input type="radio" name="q5" value="0"> MS Paint</label>
+<label><input type="radio" name="q5" value="0"> VLC Player</label>
+<label><input type="radio" name="q5" value="0"> Calculator</label>
+</div>
+
+<div class="q-block">
+
+<p>📌 Scenario Question</p>
+
+<p style="font-weight:400;margin-top:10px">
+You are a marketing intern at a startup café.
+Explain how you would use AI tools to create
+a social media campaign for a new product launch.
+</p>
+
+<textarea rows="6"
+placeholder="Write your answer here..."></textarea>
+
+</div>
+
+<button class="btn btn-green"
+onclick="submitMock()">
+Submit Mock Test
+</button>
+
+<div id="resultBox" class="result-box"></div>
+
+</div>
+
+<!-- TOOLS -->
+
+<div class="card">
+
+<h2>📚 Recommended AI Tools for Practice</h2>
+
+<table>
+
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Business Use</th>
+</tr>
+
+<tr>
+<td>ChatGPT</td>
+<td>Prompting & content generation</td>
+<td>Marketing copy & reports</td>
+</tr>
+
+<tr>
+<td>Canva AI</td>
+<td>Visual content creation</td>
+<td>Social media creatives</td>
+</tr>
+
+<tr>
+<td>Notion AI</td>
+<td>Documentation & summaries</td>
+<td>Business notes & planning</td>
+</tr>
+
+<tr>
+<td>Beautiful.ai</td>
+<td>Presentation automation</td>
+<td>Pitch decks & presentations</td>
+</tr>
+
+<tr>
+<td>Looker Studio</td>
+<td>Dashboard & analytics</td>
+<td>KPI dashboards</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 GJIMT AI Lab · BBA AI Integrated Program · Powered by GitHub Pages
+</footer>
+
+</div>
+
+<!-- MOCK FUNCTIONS -->
+
+<script>
+function showMock(id){
+
+  document.querySelectorAll('[id^="mock"]').forEach(m=>{
+    m.style.display='none';
+  });
+
+  document.getElementById(id).style.display='block';
+
+  window.scrollTo({
+    top:document.getElementById(id).offsetTop-80,
+    behavior:'smooth'
+  });
+}
+
+window.onload=function(){
+
+  document.querySelectorAll('[id^="mock"]').forEach((m,index)=>{
+    if(index!==0){
+      m.style.display='none';
+    }
+  });
+};
+
+function submitMock(){
+
+  let score=0;
+
+  for(let i=1;i<=5;i++){
+
+    let ans=document.querySelector(
+      'input[name="q'+i+'"]:checked'
+    );
+
+    if(ans && ans.value=="1"){
+      score++;
+    }
+  }
+
+  let percent=(score/5)*100;
+
+  let box=document.getElementById("resultBox");
+
+  if(percent>=70){
+
+    box.className="result-box pass";
+
+    box.innerHTML=
+      "✅ PASS — You scored "+
+      percent+
+      "% ("+score+
+      "/5 correct). Excellent work!";
+
+  }else{
+
+    box.className="result-box fail";
+
+    box.innerHTML=
+      "❌ FAIL — You scored "+
+      percent+
+      "% ("+score+
+      "/5 correct). Please revise Module 1.";
+  }
+
+  box.style.display='block';
+}
+</script>
+
+<!-- AUTH SYSTEM -->
+
+<script>
+(function(){
+
+  var USERS = {
+
+    'bba26-ai-01':'student@2026',
+    'bba26-ai-02':'student@2026',
+    'bba26-ai-03':'student@2026',
+    'bba26-ai-04':'student@2026',
+    'bba26-ai-05':'student@2026',
+    'bba26-ai-06':'student@2026',
+    'bba26-ai-07':'student@2026',
+    'bba26-ai-08':'student@2026',
+    'bba26-ai-09':'student@2026',
+    'bba26-ai-10':'student@2026',
+
+    'bba26-fac-tarun':'faculty@2026',
+    'bba26-admin':'admin@2026'
+  };
+
+  var ROLES = {
+
+    'bba26-ai-01':'student',
+    'bba26-ai-02':'student',
+    'bba26-ai-03':'student',
+    'bba26-ai-04':'student',
+    'bba26-ai-05':'student',
+    'bba26-ai-06':'student',
+    'bba26-ai-07':'student',
+    'bba26-ai-08':'student',
+    'bba26-ai-09':'student',
+    'bba26-ai-10':'student',
+
+    'bba26-fac-tarun':'faculty',
+    'bba26-admin':'admin'
+  };
+
+  function getSession(){
+
+    try{
+      return JSON.parse(
+        sessionStorage.getItem('lmsSession')||'null'
+      );
+    }catch(e){
+      return null;
+    }
+  }
+
+  function setSession(uid,role){
+
+    sessionStorage.setItem(
+      'lmsSession',
+      JSON.stringify({
+        uid:uid,
+        role:role
+      })
+    );
+  }
+
+  function clearSession(){
+    sessionStorage.removeItem('lmsSession');
+  }
+
+  function unlock(session){
+
+    document.getElementById(
+      'lms-login-overlay'
+    ).classList.remove('active');
+
+    document.getElementById(
+      'lms-logout-btn'
+    ).style.display='block';
+
+    let wb=document.getElementById(
+      'lms-welcome-bar'
+    );
+
+    wb.style.display='block';
+
+    wb.textContent=
+      'Signed in as: '+
+      session.uid+
+      ' ('+session.role+') | BBA AI Integrated Program 2026';
+
+    document.getElementById(
+      'lms-page-content'
+    ).classList.add('unlocked');
+  }
+
+  window.lmsDoLogin=function(){
+
+    let uid=(
+      document.getElementById('lms-uid').value||''
+    ).trim().toLowerCase();
+
+    let pwd=document.getElementById(
+      'lms-pwd'
+    ).value||'';
+
+    let err=document.getElementById(
+      'lms-login-error'
+    );
+
+    if(!USERS[uid]){
+
+      err.textContent='❌ User ID not found.';
+      return;
+    }
+
+    if(USERS[uid]!==pwd){
+
+      err.textContent='❌ Incorrect password.';
+      return;
+    }
+
+    let role=ROLES[uid];
+
+    setSession(uid,role);
+
+    unlock({
+      uid:uid,
+      role:role
+    });
+  };
+
+  window.lmsLogout=function(){
+
+    clearSession();
+
+    document.getElementById(
+      'lms-login-overlay'
+    ).classList.add('active');
+
+    document.getElementById(
+      'lms-logout-btn'
+    ).style.display='none';
+
+    document.getElementById(
+      'lms-welcome-bar'
+    ).style.display='none';
+
+    document.getElementById(
+      'lms-page-content'
+    ).classList.remove('unlocked');
+
+    document.getElementById(
+      'lms-uid'
+    ).value='';
+
+    document.getElementById(
+      'lms-pwd'
+    ).value='';
+
+    document.getElementById(
+      'lms-login-error'
+    ).textContent='';
+  };
+
+  let session=getSession();
+
+  if(
+    session &&
+    USERS[session.uid] &&
+    ROLES[session.uid]===session.role
+  ){
+    unlock(session);
+  }
+
+})();
+</script>
+
+</body>
+</html>

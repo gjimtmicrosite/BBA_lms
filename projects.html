@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shadow Projects — GJIMT BBA AI LMS</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#f4f6fb;
+  color:#1a1a2e;
+}
+
+header{
+  background:linear-gradient(135deg,#1e3c72,#16213e);
+  color:#fff;
+  padding:20px 32px;
+}
+
+header h1{
+  font-size:1.5rem;
+  margin-bottom:6px;
+}
+
+header p{
+  opacity:.9;
+  font-size:.9rem;
+}
+
+nav{
+  background:#16213e;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  padding:10px 32px;
+}
+
+nav a{
+  color:#e2e8f0;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:6px;
+  transition:.2s;
+  font-size:.88rem;
+}
+
+nav a:hover,
+nav a.active{
+  background:#2563eb;
+  color:#fff;
+}
+
+.container{
+  max-width:1150px;
+  margin:28px auto;
+  padding:0 18px;
+}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.card h2{
+  color:#1e3c72;
+  margin-bottom:12px;
+}
+
+.card h3{
+  color:#16213e;
+  margin:18px 0 10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:.74rem;
+  font-weight:700;
+}
+
+.badge-proj{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.badge-week{
+  background:#ede9fe;
+  color:#6d28d9;
+}
+
+.phase-box{
+  padding:14px 16px;
+  margin:12px 0;
+  border-radius:10px;
+  background:#f8fafc;
+  border-left:5px solid #2563eb;
+}
+
+.phase-box.manual{
+  border-color:#ea580c;
+}
+
+.phase-box.ai{
+  border-color:#16a34a;
+}
+
+.phase-box ul{
+  padding-left:20px;
+  margin-top:10px;
+}
+
+.phase-box li{
+  margin:7px 0;
+  font-size:.92rem;
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  background:#1e3c72;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:7px;
+  margin:4px;
+  font-size:.86rem;
+}
+
+.btn:hover{
+  background:#16213e;
+}
+
+.btn-green{
+  background:#16a34a;
+}
+
+.btn-green:hover{
+  background:#15803d;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  font-size:.9rem;
+}
+
+th{
+  background:#1e3c72;
+  color:#fff;
+  padding:10px;
+  text-align:left;
+}
+
+td{
+  padding:10px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+tr:hover td{
+  background:#f8fbff;
+}
+
+.hint{
+  font-size:.82rem;
+  color:#64748b;
+  margin-top:6px;
+}
+
+footer{
+  text-align:center;
+  padding:24px;
+  color:#64748b;
+  font-size:.82rem;
+}
+
+/* LOGIN SYSTEM */
+
+#lms-login-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f172a 100%);
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+}
+
+#lms-login-overlay.active{
+  display:flex;
+}
+
+.lms-login-box{
+  background:#fff;
+  width:360px;
+  border-radius:20px;
+  padding:40px 34px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.lms-login-box h2{
+  color:#0f172a;
+  margin-bottom:6px;
+}
+
+.lms-subtitle{
+  color:#64748b;
+  font-size:.8rem;
+  margin-bottom:24px;
+}
+
+.lms-login-box input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:12px;
+  border:1px solid #dbe2ea;
+  border-radius:8px;
+  outline:none;
+}
+
+.lms-login-box input:focus{
+  border-color:#2563eb;
+}
+
+.lms-login-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.lms-login-box button:hover{
+  background:#1d4ed8;
+}
+
+#lms-login-error{
+  color:#dc2626;
+  font-size:.82rem;
+  margin-top:10px;
+}
+
+.lms-page-content{
+  display:none;
+}
+
+.lms-page-content.unlocked{
+  display:block;
+}
+
+.lms-logout-btn{
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:9999;
+  background:#dc2626;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.lms-welcome-bar{
+  background:#0f172a;
+  color:#cbd5e1;
+  text-align:center;
+  padding:6px;
+  font-size:.8rem;
+}
+</style>
+</head>
+
+<body>
+
+<div id="lms-login-overlay" class="active">
+  <div class="lms-login-box">
+    <h2>🎓 GJIMT BBA LMS</h2>
+    <div class="lms-subtitle">
+      BBA with AI Integration · 2026<br>
+      Please sign in to continue
+    </div>
+
+    <input type="text" id="lms-uid" placeholder="User ID">
+    <input type="password" id="lms-pwd" placeholder="Password"
+      onkeydown="if(event.key==='Enter')lmsDoLogin()">
+
+    <button onclick="lmsDoLogin()">Sign In →</button>
+
+    <div id="lms-login-error"></div>
+
+    <div style="margin-top:14px;font-size:.74rem;color:#94a3b8;line-height:1.6">
+      Students: <b>bba26-ai-01</b> to <b>bba26-ai-10</b><br>
+      Faculty: <b>bba26-fac-tarun</b><br>
+      Admin: <b>bba26-admin</b>
+    </div>
+  </div>
+</div>
+
+<button class="lms-logout-btn" id="lms-logout-btn"
+style="display:none" onclick="lmsLogout()">
+⏻ Sign Out
+</button>
+
+<div id="lms-welcome-bar" class="lms-welcome-bar"
+style="display:none"></div>
+
+<div id="lms-page-content" class="lms-page-content">
+
+<header>
+  <h1>GJIMT AI Lab — BBA Sem 1 LMS</h1>
+  <p>BBA with AI Integration · Industry Shadow Projects · 2026 Batch</p>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="calendar.html">📅 Calendar</a>
+  <a href="projects.html" class="active">📁 Projects</a>
+  <a href="mock.html">📝 Mock Tests</a>
+  <a href="faculty.html">👩‍🏫 Faculty</a>
+  <a href="users.html">🔑 Users</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<h2>📁 BBA AI Integrated Shadow Projects</h2>
+
+<p>
+Each project combines business fundamentals with AI tools.
+Students complete manual analysis first and then use AI tools
+for enhancement, automation, dashboards, and insights.
+</p>
+
+<div style="margin-top:14px">
+<a class="btn" href="#P1">P1 Retail Analysis</a>
+<a class="btn" href="#P2">P2 Social Media Campaign</a>
+<a class="btn" href="#P3">P3 Startup Case Study</a>
+<a class="btn" href="#P4">P4 Business Dashboard</a>
+</div>
+</div>
+
+<!-- PROJECT 1 -->
+
+<div class="card" id="P1">
+
+<h2>
+🛍️ P1: Retail Store Market Analysis
+<span class="badge badge-proj">Reliance / DMart</span>
+<span class="badge badge-week">Weeks 1–3</span>
+</h2>
+
+<p>
+<strong>Objective:</strong>
+Study a retail business model, customer segments,
+competitors, and local market opportunities.
+</p>
+
+<h3>📋 4-Phase Framework</h3>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 1 — Business Understanding</strong>
+
+<ul>
+<li>Study Reliance Retail or DMart business model</li>
+<li>Visit one nearby retail store physically</li>
+<li>Observe pricing, product layout, offers, customer flow</li>
+<li>Create handwritten observation notes</li>
+</ul>
+</div>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 2 — Customer Analysis</strong>
+
+<ul>
+<li>Identify target customers and buying behaviour</li>
+<li>Conduct survey with minimum 10 customers</li>
+<li>Create SWOT analysis manually</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 3 — AI Business Insights</strong>
+
+<ul>
+<li>Use ChatGPT for competitor analysis</li>
+<li>Use Google Trends for product demand research</li>
+<li>Create AI-generated marketing suggestions</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 4 — Final Presentation</strong>
+
+<ul>
+<li>Create Canva AI presentation</li>
+<li>Prepare 5-minute viva presentation</li>
+<li>Submit report and reflection note</li>
+</ul>
+</div>
+
+<h3>📊 Evaluation Rubric</h3>
+
+<table>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>Focus</th>
+</tr>
+
+<tr>
+<td>Business Understanding</td>
+<td>30%</td>
+<td>Retail model and market clarity</td>
+</tr>
+
+<tr>
+<td>Customer Analysis</td>
+<td>30%</td>
+<td>Survey quality and insights</td>
+</tr>
+
+<tr>
+<td>AI Usage</td>
+<td>40%</td>
+<td>Prompt quality and AI-enhanced recommendations</td>
+</tr>
+</table>
+
+<div style="margin-top:14px">
+<a class="btn btn-green"
+href="https://docs.google.com/forms/create"
+target="_blank">
+📤 Submit P1
+</a>
+</div>
+
+</div>
+
+<!-- PROJECT 2 -->
+
+<div class="card" id="P2">
+
+<h2>
+📱 P2: Social Media Marketing Campaign
+<span class="badge badge-proj">Instagram / YouTube</span>
+<span class="badge badge-week">Weeks 4–6</span>
+</h2>
+
+<p>
+<strong>Objective:</strong>
+Create a social media campaign for a small business
+using AI tools and marketing strategies.
+</p>
+
+<h3>📋 4-Phase Framework</h3>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 1 — Brand Study</strong>
+
+<ul>
+<li>Select a local business or startup</li>
+<li>Study Instagram and YouTube presence</li>
+<li>Identify strengths and weaknesses</li>
+</ul>
+</div>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 2 — Content Planning</strong>
+
+<ul>
+<li>Create content calendar manually</li>
+<li>Design customer persona</li>
+<li>Write campaign goals and KPIs</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 3 — AI Content Creation</strong>
+
+<ul>
+<li>Use ChatGPT for captions and hashtags</li>
+<li>Use Canva AI for posters and reels</li>
+<li>Create AI-based engagement strategy</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 4 — Analytics & Report</strong>
+
+<ul>
+<li>Create engagement dashboard</li>
+<li>Compare before vs after strategy</li>
+<li>Prepare campaign presentation</li>
+</ul>
+</div>
+
+<h3>📊 Evaluation Rubric</h3>
+
+<table>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>Focus</th>
+</tr>
+
+<tr>
+<td>Campaign Planning</td>
+<td>30%</td>
+<td>Marketing strategy and planning</td>
+</tr>
+
+<tr>
+<td>Content Quality</td>
+<td>30%</td>
+<td>Visuals and communication</td>
+</tr>
+
+<tr>
+<td>AI Enhancement</td>
+<td>40%</td>
+<td>AI tools and analytics usage</td>
+</tr>
+</table>
+
+<div style="margin-top:14px">
+<a class="btn btn-green"
+href="https://docs.google.com/forms/create"
+target="_blank">
+📤 Submit P2
+</a>
+</div>
+
+</div>
+
+<!-- PROJECT 3 -->
+
+<div class="card" id="P3">
+
+<h2>
+🚀 P3: Startup Case Study
+<span class="badge badge-proj">Indian Startup Ecosystem</span>
+<span class="badge badge-week">Weeks 7–9</span>
+</h2>
+
+<p>
+<strong>Objective:</strong>
+Analyse a startup’s business model,
+growth strategy, funding, and future potential.
+</p>
+
+<h3>📋 4-Phase Framework</h3>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 1 — Startup Research</strong>
+
+<ul>
+<li>Select one Indian startup</li>
+<li>Study founders, product, customers, funding</li>
+<li>Create company profile manually</li>
+</ul>
+</div>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 2 — Business Model Analysis</strong>
+
+<ul>
+<li>Prepare Business Model Canvas</li>
+<li>Analyse competitors and revenue streams</li>
+<li>Estimate growth opportunities</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 3 — AI Strategic Analysis</strong>
+
+<ul>
+<li>Use ChatGPT for SWOT and market analysis</li>
+<li>Generate AI business recommendations</li>
+<li>Create future growth scenarios</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 4 — Investor Pitch</strong>
+
+<ul>
+<li>Create investor-style presentation</li>
+<li>Present startup viability report</li>
+<li>Submit AI reflection note</li>
+</ul>
+</div>
+
+<h3>📊 Evaluation Rubric</h3>
+
+<table>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>Focus</th>
+</tr>
+
+<tr>
+<td>Startup Research</td>
+<td>30%</td>
+<td>Accuracy and depth of analysis</td>
+</tr>
+
+<tr>
+<td>Business Model</td>
+<td>30%</td>
+<td>BMC and revenue analysis</td>
+</tr>
+
+<tr>
+<td>AI Strategy</td>
+<td>40%</td>
+<td>Strategic recommendations and insights</td>
+</tr>
+</table>
+
+<div style="margin-top:14px">
+<a class="btn btn-green"
+href="https://docs.google.com/forms/create"
+target="_blank">
+📤 Submit P3
+</a>
+</div>
+
+</div>
+
+<!-- PROJECT 4 -->
+
+<div class="card" id="P4">
+
+<h2>
+📊 P4: AI Business Dashboard
+<span class="badge badge-proj">Excel AI / Power BI</span>
+<span class="badge badge-week">Weeks 10–12</span>
+</h2>
+
+<p>
+<strong>Objective:</strong>
+Build a KPI dashboard using business data
+and AI-generated insights.
+</p>
+
+<h3>📋 4-Phase Framework</h3>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 1 — KPI Planning</strong>
+
+<ul>
+<li>Select Sales, HR, Marketing, or Finance domain</li>
+<li>Identify 4 KPIs manually</li>
+<li>Sketch dashboard layout</li>
+</ul>
+</div>
+
+<div class="phase-box manual">
+<strong>🟠 Phase 2 — Data Preparation</strong>
+
+<ul>
+<li>Clean Excel dataset</li>
+<li>Create pivot tables manually</li>
+<li>Calculate KPI formulas</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 3 — AI Dashboard Creation</strong>
+
+<ul>
+<li>Use Excel AI / Copilot</li>
+<li>Create Power BI visuals</li>
+<li>Generate AI-based business insights</li>
+</ul>
+</div>
+
+<div class="phase-box ai">
+<strong>🤖 Phase 4 — Final Dashboard Submission</strong>
+
+<ul>
+<li>Create executive dashboard</li>
+<li>Add AI-generated summary</li>
+<li>Present final insights</li>
+</ul>
+</div>
+
+<h3>📊 Evaluation Rubric</h3>
+
+<table>
+<tr>
+<th>Criteria</th>
+<th>Weight</th>
+<th>Focus</th>
+</tr>
+
+<tr>
+<td>KPI Design</td>
+<td>30%</td>
+<td>SMART KPI selection</td>
+</tr>
+
+<tr>
+<td>Data Accuracy</td>
+<td>30%</td>
+<td>Correct calculations and cleaning</td>
+</tr>
+
+<tr>
+<td>Dashboard Quality</td>
+<td>40%</td>
+<td>Visuals, AI insights, interactivity</td>
+</tr>
+</table>
+
+<div style="margin-top:14px">
+<a class="btn btn-green"
+href="https://docs.google.com/forms/create"
+target="_blank">
+📤 Submit P4
+</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 GJIMT AI Lab · BBA with AI Integration · Powered by GitHub Pages
+</footer>
+
+</div>
+
+<script>
+(function(){
+
+var USERS = {
+'bba26-ai-01':'student@2026',
+'bba26-ai-02':'student@2026',
+'bba26-ai-03':'student@2026',
+'bba26-ai-04':'student@2026',
+'bba26-ai-05':'student@2026',
+'bba26-ai-06':'student@2026',
+'bba26-ai-07':'student@2026',
+'bba26-ai-08':'student@2026',
+'bba26-ai-09':'student@2026',
+'bba26-ai-10':'student@2026',
+'bba26-fac-tarun':'faculty@2026',
+'bba26-admin':'admin@2026'
+};
+
+var ROLES = {
+'bba26-ai-01':'student',
+'bba26-ai-02':'student',
+'bba26-ai-03':'student',
+'bba26-ai-04':'student',
+'bba26-ai-05':'student',
+'bba26-ai-06':'student',
+'bba26-ai-07':'student',
+'bba26-ai-08':'student',
+'bba26-ai-09':'student',
+'bba26-ai-10':'student',
+'bba26-fac-tarun':'faculty',
+'bba26-admin':'admin'
+};
+
+var ALLOWED=['student','faculty','admin'];
+
+function getSession(){
+try{
+return JSON.parse(sessionStorage.getItem('lmsSession')||'null');
+}catch(e){
+return null;
+}
+}
+
+function setSession(uid,role){
+sessionStorage.setItem('lmsSession',
+JSON.stringify({uid:uid,role:role}));
+}
+
+function clearSession(){
+sessionStorage.removeItem('lmsSession');
+}
+
+function unlock(session){
+
+document.getElementById('lms-login-overlay')
+.classList.remove('active');
+
+document.getElementById('lms-logout-btn')
+.style.display='block';
+
+var wb=document.getElementById('lms-welcome-bar');
+
+wb.style.display='block';
+
+wb.textContent=
+'Signed in as: '+session.uid+
+' ('+session.role+') | BBA AI Integrated Program 2026';
+
+document.getElementById('lms-page-content')
+.classList.add('unlocked');
+}
+
+window.lmsDoLogin=function(){
+
+var uid=document.getElementById('lms-uid')
+.value.trim().toLowerCase();
+
+var pwd=document.getElementById('lms-pwd').value;
+
+var err=document.getElementById('lms-login-error');
+
+if(!USERS[uid]){
+err.textContent='❌ User ID not found';
+return;
+}
+
+if(USERS[uid]!==pwd){
+err.textContent='❌ Incorrect password';
+return;
+}
+
+var role=ROLES[uid];
+
+if(ALLOWED.indexOf(role)===-1){
+err.textContent='⛔ Access denied';
+return;
+}
+
+setSession(uid,role);
+
+unlock({uid:uid,role:role});
+};
+
+window.lmsLogout=function(){
+
+clearSession();
+
+document.getElementById('lms-login-overlay')
+.classList.add('active');
+
+document.getElementById('lms-logout-btn')
+.style.display='none';
+
+document.getElementById('lms-welcome-bar')
+.style.display='none';
+
+document.getElementById('lms-page-content')
+.classList.remove('unlocked');
+};
+
+var session=getSession();
+
+if(
+session &&
+USERS[session.uid] &&
+ROLES[session.uid]===session.role
+){
+unlock(session);
+}
+
+})();
+</script>
+
+</body>
+</html>
