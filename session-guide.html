@@ -2,11 +2,1193 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f6fb;color:#1a1a2e}header{background:linear-gradient(135deg,#0f3460,#16213e);color:#fff;padding:18px 32px;display:flex;align-items:center;gap:16px}header h1{font-size:1.4rem;font-weight:700}header p{font-size:.82rem;opacity:.85}nav{background:#16213e;display:flex;flex-wrap:wrap;gap:4px;padding:8px 32px}nav a{color:#e0e0e0;text-decodemand and pricingn:none;padding:6px 14px;border-radius:4px;font-size:.85rem;transition:.2s}nav a:hover,nav a.active{background:#0f3460;color:#fff}.container{max-width:1100px;margin:28px auto;padding:0 20px}.card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:24px;margin-bottom:20px}.card h2{color:#0f3460;margin-bottom:12px;font-size:1.12rem}.card h3{color:#16213e;margin:14px 0 8px;font-size:.98rem}table{width:100%;border-collapse:collapse;font-size:.88rem}th{background:#0f3460;color:#fff;padding:9px 12px;text-align:left}td{padding:8px 12px;border-bottom:1px solid #eee;vertical-align:top}tr:hover td{background:#f0f4ff}.badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.75rem;font-weight:600}.badge-proj{background:#e3f2fd;color:#0f3460}.badge-ai{background:#e8f5e9;color:#1b5e20}.badge-mock{background:#fff3e0;color:#e65100}.badge-doubt{background:#f3e5f5;color:#6a1b9a}.btn{display:inline-block;padding:8px 18px;background:#0f3460;color:#fff;border-radius:6px;text-decodemand and pricingn:none;font-size:.85rem;margin:4px 2px;border:none;cursor:pointer}.btn:hover{background:#16213e}.btn-green{background:#2e7d32}.btn-orange{background:#e65100}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.tile{background:#f8f9ff;border:1px solid #dde3f0;border-radius:10px;padding:18px;text-decodemand and pricingn:none;color:inherit;display:block}.tile:hover{background:#e3f2fd;border-color:#0f3460}.tile h3{color:#0f3460;margin-bottom:6px}.hint{font-size:.8rem;color:#666;margin-top:6px}ul,ol{padding-left:20px;margin:8px 0}li{margin:4px 0;font-size:.9rem;line-height:1.45}.phase-box{border-left:4px solid #0f3460;padding:10px 14px;margin:8px 0;background:#f8f9ff;border-radius:0 6px 6px 0}.phase-box.ai{border-color:#2e7d32;background:#f1f8f1}.phase-box.manual{border-color:#e65100;background:#fff8f0}.layout{display:flex;min-height:80vh}.sidebar{width:235px;min-width:235px;background:#16213e;padding:16px;position:sticky;top:0;height:100vh;overflow-y:auto;flex-shrink:0}.sidebar p,.sidebar p.label{color:#aaa;font-size:.73rem;text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px}.sidebar a{display:block;padding:8px 12px;text-decodemand and pricingn:none;color:#e0e0e0;font-size:.82rem;border-radius:4px;margin:2px 0;transition:.15s}.sidebar a:hover{background:#0f3460;color:#fff}.main-content{flex:1;padding:20px;overflow-y:auto}.hour-label{display:inline-block;background:#0f3460;color:#fff;padding:3px 10px;border-radius:20px;font-size:.78rem;font-weight:700;white-space:nowrap}.week-header{background:linear-gradient(135deg,#0f3460,#16213e);color:#fff;padding:14px 20px;border-radius:8px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}.week-header h3{font-size:1rem;color:#fff}.week-header .wk-meta{font-size:.8rem;opacity:.85}.step-list{list-style:none;padding:0;margin:0}.step-list li{padding:5px 0 5px 18px;position:relative;font-size:.88rem;color:#333;line-height:1.5}.step-list li::before{content:'›';position:absolute;left:0;color:#0f3460;font-weight:700}.activity-block{border-left:3px solid #0f3460;padding:8px 12px;margin:6px 0;background:#f8f9ff;border-radius:0 6px 6px 0;font-size:.87rem}.activity-block.student-block{border-color:#2e7d32;background:#f1f8f1}.activity-block.shared-block{border-color:#e65100;background:#fff8f0}.activity-title{font-weight:600;color:#0f3460;font-size:.82rem;margin-bottom:4px}.student-block .activity-title{color:#2e7d32}.shared-block .activity-title{color:#e65100}.note{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px;margin-top:12px;font-size:.86rem;color:#6d4c00}.q-block{background:#f8f9ff;border-radius:8px;padding:14px;margin-bottom:14px;border:1px solid #dde3f0}.q-block p{font-weight:600;margin-bottom:8px}.q-block label{display:block;margin:4px 0;cursor:pointer;font-size:.9rem}.scenario-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px;margin-bottom:14px}.scenario-box p{font-weight:600;color:#e65100;margin-bottom:8px}textarea{width:100%;border:1px solid #ccc;border-radius:6px;padding:8px;font-size:.88rem;resize:vertical}.result-box{display:none;padding:12px;border-radius:6px;margin-top:10px;font-weight:600}.pass{background:#e8f5e9;color:#2e7d32;display:block}.fail{background:#ffebee;color:#c62828;display:block}.lock-card{border-left:4px solid #e65100;background:#fff8f0}.admin-only{display:none}.student-only{display:none}#certPracticeArea{display:none}footer{text-align:center;padding:18px;font-size:.8rem;color:#888;margin-top:30px}
 #lms-login-overlay{display:none;position:fixed;inset:0;background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f172a 100%);z-index:99999;align-items:center;justify-content:center;font-family:'Segoe UI',sans-serif}#lms-login-overlay.active{display:flex}.lms-login-box{background:#fff;border-radius:18px;padding:40px 36px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.5);text-align:center}.lms-login-box .lms-logo{font-size:2rem;margin-bottom:4px}.lms-login-box h2{font-size:1.25rem;color:#0f172a;margin:0 0 4px}.lms-login-box .lms-subtitle{font-size:.78rem;color:#64748b;margin-bottom:24px}.lms-login-box input{width:100%;box-sizing:border-box;padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.95rem;margin-bottom:12px;outline:none;transition:border .2s}.lms-login-box input:focus{border-color:#3b82f6}.lms-login-box button{width:100%;padding:12px;background:#3b82f6;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;margin-top:4px}.lms-login-box button:hover{background:#2563eb}#lms-login-error{color:#ef4444;font-size:.82rem;margin-top:8px;min-height:18px}.lms-login-box .lms-hint{font-size:.73rem;color:#94a3b8;margin-top:14px;line-height:1.5}.lms-page-content{display:none}.lms-page-content.unlocked{display:block}.lms-logout-btn{position:fixed;top:12px;right:16px;z-index:9999;background:#ef4444;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:.8rem;cursor:pointer;font-weight:600}.lms-welcome-bar{background:#0f172a;color:#94a3b8;font-size:.78rem;text-align:center;padding:5px;letter-spacing:.5px}@media(max-width:768px){.layout{flex-direction:column}.sidebar{width:100%;height:auto;position:relative}header,nav{padding-left:18px;padding-right:18px}.container{padding:0 14px}}
+<style>
+.weekBtn{
+padding:10px 22px;
+border:none;
+border-radius:30px;
+background:#e8edf5;
+font-weight:600;
+cursor:pointer;
+}
+
+.weekBtn.active{
+background:#0f3460;
+color:white;
+}
+
+.resourceGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.resourceCard{
+background:#fff;
+border:1px solid #dbe2ee;
+border-radius:14px;
+padding:18px;
+text-decoration:none;
+color:#1a1a2e;
+}
+
+.resourceCard:hover{
+background:#f4f8ff;
+border-color:#0f3460;
+}
+.tab-buttons{
+display:flex;
+gap:12px;
+margin:20px 0;
+flex-wrap:wrap;
+}
+
+.tabBtn{
+background:#e8edf5;
+border:none;
+padding:12px 22px;
+border-radius:30px;
+font-weight:600;
+font-size:.9rem;
+cursor:pointer;
+color:#0f3460;
+transition:.3s;
+}
+
+.tabBtn:hover{
+background:#dbe7f8;
+}
+
+.tabBtn.active{
+background:#0f3460;
+color:#fff;
+}
+
+.resourceGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:18px;
+margin-top:15px;
+}
+
+.resourceCard{
+background:#fff;
+border:1px solid #dde3f0;
+border-radius:14px;
+padding:20px;
+text-decoration:none;
+color:#1a1a2e;
+display:block;
+transition:.3s;
+}
+
+.resourceCard:hover{
+background:#f5f8ff;
+border-color:#0f3460;
+}
+
+.resourceCard h4{
+color:#0f3460;
+margin-bottom:10px;
+}
+
+.resourceCard p{
+color:#666;
+line-height:1.5;
+}
+</style>
+
 </style></head><body>
 <div id="lms-login-overlay" class="active"><div class="lms-login-box"><div class="lms-logo">🎓</div><h2>GJIMT BBA LMS</h2><div class="lms-subtitle">BBA with AI Integrated Program· 2026<br>Please sign in to continue</div><input type="text" id="lms-uid" placeholder="User ID" autocomplete="username"><input type="password" id="lms-pwd" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')lmsDoLogin()"><button onclick="lmsDoLogin()">Sign In →</button><div id="lms-login-error"></div><div class="lms-hint">Students: <b>bba26-ai-01</b> … <b>bba26-ai-10</b><br>Faculty: <b>bba26-fac-tarun</b> | Admin: <b>bba26-admin</b></div></div></div>
 <button class="lms-logout-btn" id="lms-logout-btn" style="display:none" onclick="lmsLogout()">⏻ Sign Out</button><div id="lms-welcome-bar" class="lms-welcome-bar" style="display:none"></div><div id="lms-page-content" class="lms-page-content">
 <header><div><h1>GJIMT AI Lab — BBA Sem 1 LMS</h1><p>BBA with AI Integrated Program · 42-Hour Program · 2 Shadow Projects · Sem 2 Certification Planning · Batch of 10</p></div></header><nav><a href="index.html" class="">🏠 Home</a><a href="calendar.html" class="">📅 42-Hour Calendar</a><a href="projects.html" class="">📁 Shadow Projects</a><a href="session-guide.html" class="active">🗂️ Session Guide</a><a href="mock.html" class="">🔒 Certification (Sem 2)</a><a href="faculty.html" class="">👩‍🏫 Faculty Dashboard</a><a href="upload-guide.html" class="">📤 Upload Guide</a></nav>
-<div class="layout"><div class="sidebar"><p class="label">Weekly Sessions</p><a href="#wk1">Week 1 — P1 Phase 1</a><a href="#wk2">Week 2 — P1 Phase 1 cont.</a><a href="#wk3">Week 3 — P1 Phase 2</a><a href="#wk4">Week 4 — P1 Phase 3</a><a href="#wk5">Week 5 — P1 Phase 4</a><a href="#wk6">Week 6 — P1 Viva + Report Submission</a><a href="#wk7">Week 7 — P2 Phase 1</a><a href="#wk8">Week 8 — P2 Phase 2</a><a href="#wk9">Week 9 — P2 Phase 3</a><a href="#wk10">Week 10 — P2 Phase 4</a><a href="#wk11">Week 11 — P2 Report Writing</a><a href="#wk12">Week 12 — P2 Viva + Submission</a><a href="#wk13">Week 13 — Portfolio Review</a><a href="#wk14">Week 14 — Final Viva</a><br><p class="label">Links</p><a href="calendar.html">📅 Full Calendar</a><a href="projects.html">📁 Projects</a><a href="upload-guide.html">📤 Upload Guide</a></div><div class="main-content"><div class="card"><h2>🗂️ Weekly Session Guide — Hour-by-Hour Plan</h2><div class="note"><strong>Important:</strong> BBA Semester 1 has <strong>no certification/mock-test component for students</strong>. This guide is built around exactly <strong>2 Shadow Projects</strong>: P1 from Weeks 1–6 and P2 from Weeks 7–12.</div></div><div id="wk1" class="card"><div class="week-header"><h3>📅 Week 1 — P1 Phase 1: Company Selection + Accounting Setup</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Introduce Reliance Retail, local outlet study structure and market study sections.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Select Reliance Retail company, create Drive folder and write company profile.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk2" class="card"><div class="week-header"><h3>📅 Week 2 — P1 Phase 1 cont.: Local Market Demand Reading</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Explain revenue, expense, gross profit, operating profit and net profit.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Mark 8 local market demand items and write meaning in simple language.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk3" class="card"><div class="week-header"><h3>📅 Week 3 — P1 Phase 2: Customer Segment Sheet Interpretation</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Explain assets, liabilities, equity and working capital.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Prepare customer segment sheet classification table.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk4" class="card"><div class="week-header"><h3>📅 Week 4 — P1 Phase 3: Demand and Pricing Explanation</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Demonstrate ChatGPT/Gemini prompts for demand and pricing concept clarity and formula verification.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Create demand and pricing sheet and verify all formulas manually.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk5" class="card"><div class="week-header"><h3>📅 Week 5 — P1 Phase 4: Excel AI Trend Tables</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Show Excel AI Analyze Data, trend table, chart and summary.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Build 3-year financial trend table and chart.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk6" class="card"><div class="week-header"><h3>📅 Week 6 — P1 Viva + Report Submission</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Review P1 files, conduct viva and give improvement comments.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Submit P1 report, Excel workbook and AI reflection.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk7" class="card"><div class="week-header"><h3>📅 Week 7 — P2 Phase 1: Amazon Business Context</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Explain Amazon segments and communication behaviour in business opedemand and pricingns.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Select segment and list communication items.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk8" class="card"><div class="week-header"><h3>📅 Week 8 — P2 Phase 2: Communication Audit</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Teach clear, unclear and improvement-needed communications with management examples.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Classify 20 communication items with reason.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk9" class="card"><div class="week-header"><h3>📅 Week 9 — P2 Phase 3: Concept Mapping with AI</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Demonstrate ChatGPT concept map genedemand and pricingn and verification.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Create corrected concept map for communication behaviour.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk10" class="card"><div class="week-header"><h3>📅 Week 10 — P2 Phase 4: Excel Communication Audit Tables</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Show communication category tables, charts and summary writing.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Build Excel communication audit table and category chart.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk11" class="card"><div class="week-header"><h3>📅 Week 11 — P2 Report Writing</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Demonstrate Grammarly AI / Copilot for professional report polishing.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Prepare final P2 report draft.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk12" class="card"><div class="week-header"><h3>📅 Week 12 — P2 Viva + Submission</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Review communication audit tables and conduct viva.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Submit P2 report, Excel file and AI reflection.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk13" class="card"><div class="week-header"><h3>📅 Week 13 — Portfolio Review</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Check P1 and P2 portfolio completion.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Correct files, organise folder and prepare final presentation.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div><div id="wk14" class="card"><div class="week-header"><h3>📅 Week 14 — Final Viva</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div><ul class="step-list"><li>Conduct final viva and portfolio assessment.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list"><li>Present learning journey and submit final checklist.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div><ul class="step-list"><li>Show Excel, ChatGPT/Gemini, Copilot or Grammarly workflow according to this week's task.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list"><li>Complete weekly worksheet / Excel work / report section and save evidence in Google Drive.</li></ul></div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div><ul class="step-list"><li>Review student work, clarify doubts and explain upload requirements. No certification/mock activity for students in Sem 1.</li></ul></div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div><ul class="step-list"><li>Upload weekly file and write 5-line reflection on manual work vs AI support.</li></ul></div></td></tr></table></div></div></div>
+<div class="layout"><div class="sidebar"><p class="label">Weekly Sessions</p><a href="#wk1">Week 1 — P1 Phase 1</a><a href="#wk2">Week 2 — P1 Phase 1 cont.</a><a href="#wk3">Week 3 — P1 Phase 2</a><a href="#wk4">Week 4 — P1 Phase 3</a><a href="#wk5">Week 5 — P1 Phase 4</a><a href="#wk6">Week 6 — P1 Viva + Report Submission</a><a href="#wk7">Week 7 — P2 Phase 1</a><a href="#wk8">Week 8 — P2 Phase 2</a><a href="#wk9">Week 9 — P2 Phase 3</a><a href="#wk10">Week 10 — P2 Phase 4</a><a href="#wk11">Week 11 — P2 Report Writing</a><a href="#wk12">Week 12 — P2 Viva + Submission</a><a href="#wk13">Week 13 — Portfolio Review</a><a href="#wk14">Week 14 — Final Viva</a><br><p class="label">Links</p><a href="calendar.html">📅 Full Calendar</a><a href="projects.html">📁 Projects</a><a href="upload-guide.html">📤 Upload Guide</a></div><div class="main-content"><div class="card"><h2>🗂️ Weekly Session Guide — Hour-by-Hour Plan</h2><div class="note"><strong>Important:</strong> BBA Semester 1 has <strong>no certification/mock-test component for students</strong>. This guide is built around exactly <strong>2 Shadow Projects</strong>: P1 from Weeks 1–6 and P2 from Weeks 7–12.</div></div><div id="wk1" class="card"><div class="week-header"><h3>📅 WEEK 1 — Store Mapping & Market Presence Analysis</h3>
+
+<span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td>
+
+<span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Project Brief & Store Discovery</div>
+
+<ul class="step-list">
+
+<li>Introduce Reliance Retail market study project and expected outcomes. </li>
+<li>Demonstrate how to use ChatGPT and Copilot for market research. </li>
+<li>Show prompt-writing techniques for store discovery and data collection.</li>
+<li>Guide students in generating store databases using AI. </li>
+<li>Review AI-generated outputs and provide corrections. </li>
+
+</ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div><ul class="step-list">
+
+<li>Generate store lists for Mohali and Chandigarh. </li>
+<li>Organize store data in Excel AI. </li>
+<li>Refine prompts to improve research quality. </li>
+<li>Create initial store database. </li>
+
+</ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Store Verification & Location Analysis</div><ul class="step-list">
+    <li>Demonstrate AI-supported location verification workflow.</li>
+	<li>Guide students in analyzing market coverage.</li>
+	<li>Show methods for location categorization and gap identification.</li>
+	<li>Review student findings.</li>
+	<li>Facilitate discussion on expansion opportunities.</li>
+</ul>
+
+</div></td><td><div class="activity-block student-block">
+<div class="activity-title">🛠️ Hands-on Lab Work</div><ul class="step-list">
+
+<li>Verify store locations using online sources and AI assistance.</li>
+<li>Use ChatGPT and Copilot to standardize location details.</li>
+<li>Categorize stores into residential, commercial, and mixed-use areas. </li>
+<li>Use Excel AI to organize and analyze store coverage. </li>
+<li>Generate AI-assisted market gap observations.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block">
+
+<div class="activity-title">✅ Store Format & Customer Mapping</div>
+<ul class="step-list">
+
+
+<li>Demonstrate customer profiling using AI. </li>
+<li>Explain catchment area analysis using ChatGPT and Copilot. </li>
+<li>Guide students in ranking store potential. </li>
+<li>Review AI-generated customer profiles. </li></li>
+<li>Provide feedback on insights generated. </li>
+
+</ul>
+</div></td><td><div class="activity-block student-block">
+
+<div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Use ChatGPT and Copilot to identify customer groups.</li> 
+<li>Create customer personas using AI. </li>
+<li>Analyze customer accessibility and market potential. </li>
+<li>Use Excel AI to rank store attractiveness. </li>
+<li>Prepare AI-generated summary of market presence findings.</li>
+
+
+</ul>
+
+</div></td></tr></table></div><div id="wk2" class="card"><div class="week-header"><h3>📅 Week 2 — P1 Phase 1 cont.: Competitor Analysis</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Competitor Identification</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-based competitor research techniques.</li>
+<li>Guide students in competitor shortlisting.</li>
+<li>Show how to organize competitor information using Excel AI.</li>
+<li>Review competitor databases.</li>
+<li>Provide feedback on research quality.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Use ChatGPT and Copilot to identify major competitors.</li>
+<li>Collect competitor location and format information.</li>
+<li>Create competitor databases in Excel AI.</li>
+<li>Compare competitor market presence.</li>
+<li>Prepare AI-generated competitor profiles.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Competitor Benchmarking</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-assisted comparison frameworks. </li>
+<li>Show how to analyze websites and customer reviews using AI. </li>
+<li>Guide students in preparing comparison matrices.</li>
+<li>Review benchmarking exercises.</li>
+<li>Discuss market positioning strategies.</li>
+
+</ul>
+</div></td><td><div class="activity-block student-block">
+<div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Use ChatGPT and Copilot to compare Reliance Smart and DMart. </li>
+<li>Analyze pricing, product variety, promotions, and customer experience. </li>
+<li>Create benchmarking matrices using Excel AI. </li>
+<li>Summarize customer review insights. </li>
+<li>Generate AI-supported competitor comparison reports.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Strengths & Weaknesses Analysis</div>
+
+<ul class="step-list">
+
+
+<li>Demonstrate SWOT analysis using AI. </li>
+<li>Explain competitive advantage assessment. </li>
+<li>Guide opportunity identification exercises. </li>
+<li>Review AI-generated SWOT outputs. </li>
+<li>Facilitate strategic discussions. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Generate SWOT analysis using ChatGPT and Copilot.</li>
+<li>Identify strengths, weaknesses, opportunities, and threats.</li>
+<li>Use Excel AI to summarize findings.</li>
+<li>Develop competitive positioning insights.</li>
+<li>Prepare AI-generated strategic recommendations.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk3" class="card"><div class="week-header"><h3>📅 Week 3 — P1 Phase 2: Customer & Demand Analysis</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Demand Analysis</div><ul class="step-list">
+
+<li>Demonstrate demand trend analysis using AI. </li>
+<li>Show methods for identifying purchasing patterns. </li>
+<li>Guide secondary research activities. </li>
+<li>Review AI-generated demand insights. </li>
+<li>Discuss operational implications. </li>
+
+</ul></div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Use ChatGPT and Copilot to analyze shopping trends.</li>
+<li>Identify peak shopping periods and product demand.</li>
+<li>Organize findings using Excel AI.</li>
+<li>Generate demand trend summaries.</li>
+<li>Create AI-supported demand analysis reports.</li>
+
+
+</ul></div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Customer Segmentation</div>
+
+<ul class="step-list">
+
+<li>Demonstrate customer segmentation using AI.</li>
+<li>Explain persona development techniques.</li>
+<li>Guide segment evaluation exercises. </li>
+<li>Review customer profiles. </li>
+<li>Provide feedback on segmentation quality.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Create customer segments using ChatGPT and Copilot.</li>
+<li>Generate customer personas.</li>
+<li>Analyze customer preferences and buying behavior.</li>
+<li>Use Excel AI to organize segment data.</li>
+<li>Identify high-potential customer groups.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ — Customer Journey Analysis</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-assisted customer journey mapping.</li>
+<li>Explain pain-point identification techniques.</li>
+<li>Guide service improvement analysis.</li>
+<li>Review customer journey maps.</li>
+<li>Facilitate customer experience discussions.</li>
+
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Student Activity</div>
+
+<ul class="step-list">
+
+<li>Create customer journey maps using ChatGPT and Canva AI.</li>
+<li>Identify shopping pain points. .</li>
+<li>Analyze customer experience factors.</li>
+<li>Develop improvement suggestions.</li>
+<li>Create visual journey maps using Canva AI.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk4" class="card"><div class="week-header"><h3>📅 Week 4 — P1 Phase 3: Survey Design & Field Research</h3>
+
+<span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Survey Design</div>
+
+<ul class="step-list">
+
+<li>Demonstrate survey generation using ChatGPT and Copilot.</li>
+<li>Explain survey design principles. </li>
+<li>Guide questionnaire development. </li>
+<li>Review student survey drafts. </li>
+<li>Provide improvement suggestions. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+<li>Generate survey questions using ChatGPT.</li>
+<li>Design customer questionnaires</li>
+<li>Refine survey structure with Copilot.</li>
+<li>Use Grammarly AI to improve clarity</li>
+<li>Prepare draft survey instruments.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Survey Refinement</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-based survey evaluation.</li>
+<li>Guide peer-testing activities. </li>
+<li>Explain survey optimization methods</li>
+<li>Review revised surveys</li>
+<li>Approve final questionnaires. </li>
+
+</ul>
+
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Test surveys among classmates. </li>
+<li>Use Grammarly AI to improve wording.</li>
+<li>Use ChatGPT to identify weak questions.</li>
+<li>Refine response options.</li>
+<li>Finalize customer survey.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Survey Deployment</div>
+
+<ul class="step-list">
+
+<li>Guide survey deployment process.</li>
+<li>Explain response monitoring techniques.</li>
+<li>Review response quality.</li>
+<li>Support field data collection. </li>
+<li>Discuss practical challenges. </li>
+
+
+</ul>
+
+</div></td><td><div class="activity-block student-block">
+
+<div class="activity-title">📤 Student Activity</div>
+
+<ul class="step-list">
+<li>Deploy survey using online forms.</li>
+<li>Collect customer responses. </li>
+<li>Monitor participation. </li>
+<li>Organize responses in Excel AI. </li>
+<li>Generate response summaries using AI.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk5" class="card"><div class="week-header"><h3>📅 Week 5 — P1 Phase 4: Data Analysis & Insight Generation</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Data Organization</div>
+
+<ul class="step-list">
+
+<li>Demonstrate data cleaning using Excel AI. .</li>
+<li>Show AI-assisted chart creation.</li>
+<li>Guide dataset preparation.</li>
+<li>Review organized datasets.</li>
+<li>Provide quality improvement feedback.</li>
+
+</ul>
+</div>
+
+</td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list"><li>Import survey responses into Excel AI. </li>
+<li>Clean and organize data. </li>
+<li>Generate charts and dashboards. </li>
+<li>Identify initial trends. </li>
+<li>Prepare datasets for analysis.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Pattern Analysis</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-based insight generation</li>
+<li>Explain interpretation of business data.</li>
+<li>Guide pattern identification activities.</li>
+<li>Review analytical findings.</li>
+<li>Facilitate business discussions.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+<ul class="step-list">
+<li>Use Excel AI and ChatGPT to analyze survey data.</li>
+<li>Identify customer preferences and satisfaction drivers. </li>
+<li>Compare customer segments. </li>
+<li>Generate business insights. </li>
+<li>Prepare analytical summaries.</li>
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ — Recommendation Development</div>
+
+<ul class="step-list">
+<li>Demonstrate recommendation generation using AI. </li>
+<li>Guide prioritization of business actions. </li>
+<li>Review proposed recommendations. </li>
+<li>Provide management perspective.</li>
+<li>Facilitate strategic discussion.</li>
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤Student Activity</div>
+
+<ul class="step-list">
+<li>Generate recommendations using ChatGPT and Copilot.</li>
+<li>Prioritize improvement opportunities.</li>
+<li>Support recommendations with data.</li>
+<li>Organize recommendations in Excel AI.</li>
+<li>Create management summary reports.</li>
+</ul>
+
+</div></td></tr></table></div><div id="wk6" class="card"><div class="week-header"><h3>📅 Week 6 — P1 Report Development & Management Presentation</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Market Research Report</div>
+
+<ul class="step-list">
+
+<li>Demonstrate AI-assisted report writing. </li>
+<li>Explain professional report structure.</li>
+<li>Guide report refinement.</li>
+<li>Review report drafts. </li>
+<li>Provide final feedback. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>	Draft report using ChatGPT and Copilot. </li>
+<li>Improve language using Grammarly AI. </li>
+<li>Create charts using Excel AI. </li>
+<li>Finalize report formatting. </li>
+<li>Prepare final market research report.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Presentation Preparation</div>
+
+<ul class="step-list">
+
+<li>Demonstrate presentation creation using Canva AI.</li>
+<li>Explain storytelling and slide design principles. </li>
+<li>Guide presentation development.</li>
+<li>Review presentation drafts.</li>
+<li>Provide presentation feedback.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Create presentation using Canva AI. </li>
+<li>Generate presentation content using ChatGPT. </li>
+<li>Improve slide content using Grammarly AI. </li>
+<li>Add visuals, charts, and infographics. </li>
+<li>Prepare final presentation deck.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Final Presentation & Review</div>
+
+<ul class="step-list">
+<li>Evaluate presentations. </li>
+<li>Review AI workflows used by students. </li>
+<li>Assess business insights and recommendations. </li>
+<li>Provide constructive feedback. </li>
+<li>Conduct project review and closure. </li>
+
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Student Activity</div>
+<ul class="step-list">
+
+<li>Present project findings.</li>
+<li>Demonstrate AI tools used throughout the project.</li>
+<li>Explain methodology and insights. </li>
+<li>Respond to faculty questions. </li>
+<li>Submit final report and presentation.</li>
+
+</ul></div></td></tr></table></div>
+
+
+
+<!-- ================= Learning Resources ================= -->
+<div class="card">
+  <h2>📚 Learning Resources — P1 Support Material</h2>
+  <p style="margin-bottom:20px;color:#555;line-height:1.6">
+    Use these weekly resources before starting
+    <strong>Week 7 — P2 Phase 1: Amazon Business Context.</strong>
+    These links support Project 1 learning, research, survey work,
+    Excel analysis, report writing, and presentation preparation.
+  </p>
+
+  <!-- Week Buttons -->
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+    <button class="weekBtn active" onclick="showResource('week1')">Week 1</button>
+    <button class="weekBtn" onclick="showResource('week2')">Week 2</button>
+    <button class="weekBtn" onclick="showResource('week3')">Week 3</button>
+    <button class="weekBtn" onclick="showResource('week4')">Week 4</button>
+    <button class="weekBtn" onclick="showResource('week5')">Week 5</button>
+    <button class="weekBtn" onclick="showResource('week6')">Week 6</button>
+  </div>
+
+  <!-- Week 1 -->
+  <div class="resourceBox" id="week1">
+    <h3>Week 1 — Store Discovery & Customer Profiling</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://maps.google.com/" target="_blank">
+        <h4>Google Maps Business Search</h4>
+        <p>Locate Reliance stores and study market presence.</p>
+      </a>
+
+      <a class="resourceCard" href="https://relianceretail.com/" target="_blank">
+        <h4>Reliance Retail Website</h4>
+        <p>Official company information and business formats.</p>
+      </a>
+
+      <a class="resourceCard" href="https://blog.hubspot.com/marketing/buyer-persona-research" target="_blank">
+        <h4>Customer Persona Templates</h4>
+        <p>Learn how to build customer personas.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="resourceBox" id="week2" style="display:none;">
+    <h3>Week 2 — Competitor Analysis</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://business.adobe.com/blog/basics/swot-analysis" target="_blank">
+        <h4>SWOT Analysis Guide</h4>
+        <p>Understand strengths and weaknesses.</p>
+      </a>
+
+      <a class="resourceCard" href="https://archive.worldbenchmarkingalliance.org/publication/food-agriculture/companies/reliance-retail-3/" target="_blank">
+        <h4>Reliance Competitive Benchmarking</h4>
+        <p>Compare Reliance Retail with competitors.</p>
+      </a>
+
+      <a class="resourceCard" href="https://www.qualtrics.com/articles/customer-experience/create-customer-journey-map/" target="_blank">
+        <h4>Customer Journey Mapping</h4>
+        <p>Study customer experience and touchpoints.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="resourceBox" id="week3" style="display:none;">
+    <h3>Week 3 — Customer Segmentation</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://business.adobe.com/blog/basics/real-world-examples-of-customer-segmentation" target="_blank">
+        <h4>Customer Segmentation</h4>
+        <p>Examples of customer groups and targeting.</p>
+      </a>
+
+      <a class="resourceCard" href="https://businessmodelcanvastemplate.com/blogs/target-market/reliance-retail-target-market" target="_blank">
+        <h4>Reliance Customer Demographics</h4>
+        <p>Understand target market characteristics.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Week 4 -->
+  <div class="resourceBox" id="week4" style="display:none;">
+    <h3>Week 4 — Survey Design</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://www.scribd.com/document/127319617/questionnaire-on-problems-and-prospect-of-retail-marketing-in-india" target="_blank">
+        <h4>Customer Survey Sample</h4>
+        <p>Reference questionnaire structure.</p>
+      </a>
+
+      <a class="resourceCard" href="https://www.nngroup.com/articles/survey-best-practices/" target="_blank">
+        <h4>Survey Design Guide</h4>
+        <p>Best practices for survey creation.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Week 5 -->
+  <div class="resourceBox" id="week5" style="display:none;">
+    <h3>Week 5 — Data Analysis</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://support.microsoft.com/en-us/excel/analyze-data-in-excel" target="_blank">
+        <h4>Excel Analyze Data</h4>
+        <p>Use AI features in Excel for insights.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Week 6 -->
+  <div class="resourceBox" id="week6" style="display:none;">
+    <h3>Week 6 — Retail Report & Canva Presentation</h3>
+
+    <div class="resourceGrid">
+      <a class="resourceCard" href="https://www.ril.com/ar2024-25/retail.html" target="_blank">
+        <h4>Reliance Retail Report</h4>
+        <p>Annual report reference for final market study report writing.</p>
+      </a>
+
+      <a class="resourceCard" href="https://www.canva.com/learn/an-easy-guide-to-creating-a-presentation-in-canva/" target="_blank">
+        <h4>Canva Presentation Guide</h4>
+        <p>Guide for creating a professional project presentation in Canva.</p>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+function showResource(id){
+
+document.querySelectorAll('.resourceBox')
+.forEach(box=>box.style.display='none');
+
+document.getElementById(id).style.display='block';
+
+document.querySelectorAll('.weekBtn')
+.forEach(btn=>btn.classList.remove('active'));
+
+event.target.classList.add('active');
+}
+</script>
+
+
+
+<div id="wk7" class="card"><div class="week-header"><h3>📅 WEEK 1: COMMUNICATION DISCOVERY & DATASET BUILDING</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div>
+
+<ul class="step-list">
+
+<li>Introduce project objectives, deliverables, and audit framework.</li>
+<li>Demonstrate communication touchpoint discovery using ChatGPT and Copilot.</li>
+<li>Explain customer journey communication mapping.</li>
+<li>Guide students in prompt development for communication classification.</li>
+<li>Review communication maps and provide feedback.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Explore Amazon communications across app, website, emails, notifications, and Help Centre.</li>
+<li>Identify communication touchpoints across the customer journey (ChatGPT/Copilot).</li>
+<li>Classify communications according to customer situations (ChatGPT).</li>
+<li>Create a communication ecosystem map. </li>
+<li>Prepare an initial communication inventory (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div>
+
+<ul class="step-list">
+
+<li>Demonstrate communication documentation and categorization techniques.</li>
+<li>Explain communication classification criteria.</li>
+<li>Guide students in evidence collection and organization.</li>
+<li>Review communication samples.</li>
+<li>Validate communication categorization.</li>
+
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Collect 6–8 communication samples.</li>
+<li>Capture screenshots or record message content.</li>
+<li>Identify source and communication purpose (ChatGPT/Copilot).</li>
+<li>Categorize communications by type (ChatGPT). </li>
+<li>Organize communication records in a structured dataset (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div>
+
+<ul class="step-list">
+
+<li>Demonstrate structured dataset creation using Excel.</li>
+<li>Explain communication taxonomy and data organization.</li>
+<li>Guide students in dataset standardization.</li>
+<li>Review dataset completeness.</li>
+<li>Provide feedback on dataset quality.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+<ul class="step-list">
+
+<li>Expand the dataset to 10–12 communication samples. </li>
+<li>Identify communication objectives and expected customer actions (ChatGPT). </li>
+<li>Create communication categories and tags</li>
+<li>Standardize communication records (Excel). </li>
+<li>Develop a master communication dataset (Excel).</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk8" class="card"><div class="week-header"><h3>📅 Week 2 — P2 Phase 2:COMMUNICATION QUALITY AUDIT</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Concept + Demo</div>
+
+<ul class="step-list">
+
+<li>Demonstrate readability and clarity evaluation using ChatGPT and Grammarly.</li>
+<li>Explain characteristics of effective communication. </li>
+<li>Guide students in identifying communication barriers. </li>
+<li>Review clarity findings. </li>
+<li>Discuss simplification approaches. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Review readability of communication samples.</li>
+<li>Identify confusing words and statements (Grammarly).</li>
+<li>Assess communication clarity levels.</li>
+<li>Generate simplified alternatives (ChatGPT).</li>
+<li>Prepare a clarity analysis report (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Guided Lab / Tool Demo</div>
+
+<ul class="step-list">
+
+<li>Demonstrate grammar auditing using Grammarly. </li>
+<li>Explain professional communication standards. </li>
+<li>Guide students in language quality review. </li>
+<li>Compare human and AI observations. </li>
+<li>Review audit findings. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Review grammar, spelling, and sentence structure (Grammarly).</li>
+<li>Identify language and formatting issues. </li>
+<li>Compare manual observations with AI suggestions (ChatGPT). </li>
+<li>Evaluate language quality. </li>
+<li>Prepare a grammar audit report (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Review + Upload Checkpoint</div>
+
+
+<ul class="step-list">
+
+<li>Demonstrate tone identification using ChatGPT.</li>
+<li>Explain professional, empathetic, and customer-friendly communication. </li>
+<li>Guide students in evaluating tone appropriateness. </li>
+<li>Review tone assessments</li>
+<li>Facilitate discussion on customer experience.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Analyze communication tone (ChatGPT). </li>
+<li>Classify messages as formal, friendly, professional, or empathetic. </li>
+<li>Match tone with customer situations. </li>
+<li>Identify inappropriate tone usage. </li>
+<li>Prepare a tone evaluation report (Excel). </li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk9" class="card"><div class="week-header"><h3>📅 Week 3 — P2 Phase 3: EFFECTIVENESS & GAP ANALYSIS</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Helpfulness Evaluation</div>
+
+<ul class="step-list">
+
+<li>Demonstrate effectiveness evaluation using ChatGPT and Copilot. </li>
+<li>Explain action-oriented communication principles. </li>
+<li>Guide students in assessing customer support effectiveness. </li>
+<li>Review findings. </li>
+<li>Facilitate insight generation. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Assess whether communications solve customer concerns.</li>
+<li>Evaluate instructions and next steps (ChatGPT). </li>
+<li>Analyze message actionability.</li>
+<li>Rate communication effectiveness (Excel).</li>
+<li>Prepare an effectiveness report.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Completeness Analysis</div>
+
+<ul class="step-list">
+
+<li>Demonstrate information completeness assessment. </li>
+<li>Explain standards for effective customer communication.</li>
+<li>Guide students in identifying information gaps. </li>
+<li>Review findings.</li>
+<li>Provide improvement suggestions.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Review information provided in communication samples. </li>
+<li>Identify missing information (ChatGPT).</li>
+<li>Assess adequacy of message details.</li>
+<li>Suggest additional content and improvements (Copilot). </li>
+<li>Prepare a completeness audit report (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Consistency Analysis</div>
+
+<ul class="step-list">
+
+<li>Demonstrate consistency auditing techniques.</li>
+<li>Explain brand communication standards. </li>
+<li>Guide students in communication comparison.</li>
+<li>Review findings.</li>
+<li>Discuss customer experience continuity.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Compare tone, language, and structure across communications (ChatGPT). </li>
+<li>Review consistency of formatting and messaging. </li>
+<li>Identify communication gaps and variations. </li>
+<li>Analyze consistency patterns (Excel). </li>
+<li>Prepare a consistency analysis report.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk10" class="card"><div class="week-header"><h3>📅 Week 4 — P2 Phase 4: STRENGTHS, WEAKNESSES & IMPROVEMENT</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️Strength Identification</div>
+
+
+<ul class="step-list">
+
+<li>Demonstrate best-practice identification using ChatGPT.</li>
+<li>Explain characteristics of effective customer communication.</li>
+<li>Guide students in evaluating successful communication examples. </li>
+<li>Review strengths identified. </li>
+<li>Facilitate benchmarking discussions. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Identify best communication examples.</li>
+<li>Analyze factors contributing to communication effectiveness (ChatGPT). </li>
+<li>Document positive communication elements.</li>
+<li>Benchmark strong communication practices. </li>
+<li>Prepare a strengths report (Excel).</li>
+
+</ul>
+
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Weakness Identification</div>
+
+<ul class="step-list">
+
+<li>Demonstrate issue identification and root-cause analysis.</li>
+<li>Explain customer pain-point evaluation.</li>
+<li>Guide students in prioritizing communication issues.</li>
+<li>Review weakness findings.</li>
+<li>Provide feedback.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Identify communication gaps and weaknesses (ChatGPT). </li>
+<li>Analyze customer pain points</li>
+<li>Assess impact of weaknesses. </li>
+<li>Categorize issues by severity (Excel). </li>
+<li>Prepare a weaknesses report.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Message Rewriting Workshop</div>
+
+<ul class="step-list">
+
+<li>Demonstrate communication redesign using ChatGPT and Grammarly.</li>
+<li>Explain clarity, empathy, and professionalism principles.</li>
+<li>Guide students in rewriting communication samples. </li>
+<li>Review revised messages. </li>
+<li>Provide developmental feedback.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Select weak communication samples. </li>
+<li>Rewrite messages for improved clarity (ChatGPT). </li>
+<li>Improve grammar and tone (Grammarly). </li>
+<li>Compare original and revised versions. </li>
+<li>Create an improved communication set.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk11" class="card"><div class="week-header"><h3>📅 Week 5 — P2 COMMUNICATION REDESIGN & GUIDELINES</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ Human vs AI Communication Comparison</div>
+
+
+<ul class="step-list">
+
+<li>Demonstrate communication enhancement techniques using ChatGPT.</li>
+<li>Explain communication quality evaluation criteria.</li>
+<li>Guide students in comparative analysis.</li>
+<li>Review findings.</li>
+<li>Facilitate discussion on best practices.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+
+<ul class="step-list">
+
+<li>Generate improved communication versions (ChatGPT). </li>
+<li>Compare original, revised, and generated versions. </li>
+<li>Evaluate strengths and weaknesses of each approach.</li>
+<li>Identify best communication practices.</li>
+<li>Prepare a comparison report (Excel).</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 Recommendation Development</div>
+
+<ul class="step-list">
+
+<li>Demonstrate recommendation development using ChatGPT and Copilot. </li>
+<li>Explain prioritization frameworks.</li>
+<li>Guide students in converting findings into actions.</li>
+<li>Review recommendations.</li>
+<li>Provide strategic feedback.</li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Convert audit findings into recommendations</li>
+<li>Link communication issues with proposed solutions (ChatGPT). </li>
+<li>Prioritize recommendations according to customer impact (Excel). </li>
+<li>Estimate expected benefits (Copilot). </li>
+<li>Prepare a recommendation report.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ Communication Guidelines Development</div>
+
+
+<ul class="step-list">
+
+<li>Demonstrate guideline creation using ChatGPT. </li>
+<li>Explain communication governance principles. </li>
+<li>Guide students in framework development. </li>
+<li>Review guideline drafts. </li>
+<li>Validate final outputs. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Develop email communication guidelines (ChatGPT). </li>
+<li>Develop FAQ communication guidelines. </li>
+<li>Develop support communication standards. </li>
+<li>Refine language and tone standards (Grammarly). </li>
+<li>Create a Communication Excellence Handbook.</li>
+
+</ul>
+
+</div></td></tr></table></div><div id="wk12" class="card"><div class="week-header"><h3>📅 Week 6 — P2 REPORT & PRESENTATION</h3><span class="wk-meta">3 Hours · BBA Sem 1</span></div><table><tr><th style="width:150px">Time Block</th><th>Faculty Action</th><th>Student Activity</th></tr><tr><td><span class="hour-label">Hr 1 · 0:00–1:00</span></td><td><div class="activity-block"><div class="activity-title">🎙️ REPORT & PRESENTATION</div>
+
+
+<ul class="step-list">
+
+<li>Demonstrate business report creation using ChatGPT, Grammarly, and Excel. </li>
+<li>Explain report structure and documentation standards.</li>
+<li>Guide students in transforming findings into business insights. </li>
+<li>Review report drafts.</li>
+<li>Provide final feedback.</li>
+
+</ul>
+
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">✏️ Student Task</div>
+
+<ul class="step-list">
+
+<li>Compile audit findings and analysis.</li>
+<li>Organize strengths, weaknesses, and recommendations (Excel). </li>
+<li>Draft report sections (ChatGPT). </li>
+<li>Refine language and professionalism (Grammarly). </li>
+<li>Prepare the final communication audit report.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 2 · 1:00–2:00</span></td><td><div class="activity-block"><div class="activity-title">💻 AI Documentation & Presentation Creation</div>
+
+<ul class="step-list">
+
+<li>Demonstrate presentation development using Canva. </li>
+<li>Explain business storytelling and executive presentation design.</li>
+<li>Guide students in structuring findings and recommendations.</li>
+<li>Review presentation flow.</li>
+<li>Provide improvement feedback.</li>
+
+</ul>
+
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">🛠️ Hands-on Lab Work</div>
+
+<ul class="step-list">
+
+<li>Document prompts and workflows used during the project.</li>
+<li>Create presentation content and storyline (ChatGPT).</li>
+<li>Design presentation slides (Canva). </li>
+<li>Develop visuals, summaries, and communication examples.</li>
+<li>Finalize the presentation deck.</li>
+
+</ul>
+
+</div></td></tr><tr><td><span class="hour-label">Hr 3 · 2:00–3:00</span></td><td><div class="activity-block"><div class="activity-title">✅ : Final Presentation & Submission</div>
+
+<ul class="step-list">
+
+<li>Evaluate analysis quality, recommendations, and project outcomes. </li>
+<li>Assess application of AI-enabled communication auditing. </li>
+<li>Facilitate Q&A and discussion. </li>
+<li>Provide final feedback. </li>
+<li>Conduct project review and reflection. </li>
+
+</ul>
+
+</div></td><td><div class="activity-block student-block"><div class="activity-title">📤 Submission + Reflection</div>
+
+<ul class="step-list">
+
+<li>Present communication audit findings (Canva). </li>
+<li>Present strengths, weaknesses, and recommendations. </li>
+<li>Demonstrate redesigned communication samples. </li>
+<li>Respond to questions using supporting evidence. </li>
+<li>Submit final report and presentation.</li>
+
+</ul>
+
+</div></td></tr></table></div>
+
+
+<!-- ===================== LEARNING RESOURCES ===================== -->
+<div class="card">
+
+<h2>📚 Learning Resources — P2 Support Material</h2>
+
+<p style="margin-bottom:20px;color:#555;line-height:1.6">
+Use these weekly resources for the Customer Communication Audit project.
+These links support communication analysis, tone evaluation, audit activities,
+report writing, and presentation preparation.
+</p>
+
+<div class="tab-buttons">
+    <button class="tabBtn active" onclick="showP2Resource(event,'p2week1')">Week 1</button>
+    <button class="tabBtn" onclick="showP2Resource(event,'p2week2')">Week 2</button>
+    <button class="tabBtn" onclick="showP2Resource(event,'p2week3')">Week 3</button>
+    <button class="tabBtn" onclick="showP2Resource(event,'p2week4')">Week 4</button>
+    <button class="tabBtn" onclick="showP2Resource(event,'p2week5')">Week 5</button>
+</div>
+
+<div class="resourceBox p2ResourceBox" id="p2week1">
+<h3>Week 1 — Communication Discovery & Dataset Building</h3>
+<div class="resourceGrid">
+<a class="resourceCard" href="https://blog.hubspot.com/service/customer-journey-map" target="_blank"><h4>Customer Journey Map</h4><p>Understand customer touchpoints and communication flow.</p></a>
+<a class="resourceCard" href="https://sellercentral.amazon.in/help/hub/reference/external/G1701?locale=en-IN" target="_blank"><h4>Customer Communication Guidelines</h4><p>Amazon communication standards and policies.</p></a>
+<a class="resourceCard" href="https://sellercentral.amazon.com/gp/help/external/G201109160" target="_blank"><h4>Customer Communication Templates</h4><p>Reference templates for customer interactions.</p></a>
+</div>
+</div>
+
+<div class="resourceBox p2ResourceBox" id="p2week2" style="display:none;">
+<h3>Week 2 — Communication Quality Audit</h3>
+<div class="resourceGrid">
+<a class="resourceCard" href="https://sellercentral.amazon.in/help/hub/reference/external/G1701?locale=en-IN" target="_blank"><h4>Customer Communication Guidelines</h4><p>Amazon communication policies and standards.</p></a>
+<a class="resourceCard" href="https://www.sprinklr.com/blog/customer-service-tone/" target="_blank"><h4>Customer Service Tone</h4><p>Learn professional and customer-friendly tone practices.</p></a>
+</div>
+</div>
+
+<div class="resourceBox p2ResourceBox" id="p2week3" style="display:none;">
+<h3>Week 3 — Effectiveness & Gap Analysis</h3>
+<div class="resourceGrid">
+<a class="resourceCard" href="https://www.bitrix24.com/articles/7-effective-customer-communication-strategies.php" target="_blank"><h4>Communication Completeness Guide</h4><p>Improve communication effectiveness and completeness.</p></a>
+</div>
+</div>
+
+<div class="resourceBox p2ResourceBox" id="p2week4" style="display:none;">
+<h3>Week 4 — Strengths, Weaknesses & Improvement</h3>
+<div class="resourceGrid">
+<a class="resourceCard" href="https://thestrategystory.com/blog/swot-analysis-of-customer-service/" target="_blank"><h4>Communication SWOT Analysis</h4><p>Identify strengths, weaknesses, opportunities and threats.</p></a>
+</div>
+</div>
+
+<div class="resourceBox p2ResourceBox" id="p2week5" style="display:none;">
+<h3>Week 5 — Communication Redesign & Guidelines</h3>
+<div class="resourceGrid">
+<a class="resourceCard" href="https://www.kustomer.com/resources/blog/ai-vs-human-customer-service-agents/" target="_blank"><h4>AI vs Human Customer Communication</h4><p>Compare AI-assisted and human customer service approaches.</p></a>
+</div>
+</div>
+
+</div>
+<script>
+function showP2Resource(event,id){
+
+document.querySelectorAll('.p2ResourceBox').forEach(box=>{
+box.style.display='none';
+});
+
+document.getElementById(id).style.display='block';
+
+document.querySelectorAll('.tabBtn').forEach(btn=>{
+btn.classList.remove('active');
+});
+
+event.currentTarget.classList.add('active');
+
+}
+</script>
+
 <footer>© 2026 GJIMT AI Lab · BBA AI Integrated Program · Powered by GitHub Pages</footer></div>
 <script>
 const LMS_USERS={};
